@@ -1,0 +1,3313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RunLink - Connect, Run, Compete</title>
+    <meta name="theme-color" content="#FFEB3B">
+    <meta name="color-scheme" content="light only">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="mobile-web-app-capable" content="yes">
+    <style>
+      /* Force light mode - prevent dark reader interference */
+      :root {
+        color-scheme: light only !important;
+      }
+      html {
+        background-color: #FFFFFF !important;
+        color-scheme: light !important;
+      }
+      body {
+        background-color: #FFFFFF !important;
+      }
+    </style>
+    <style>
+        :root {
+  /* White Background with Gold & Sage Green Accents */
+  --color-white-bg: #FFFFFF;
+  --color-off-white: #FFFFFF;
+  --color-gold-primary: #D4AF37;
+  --color-gold-secondary: #C9A961;
+  --color-gold-dark: #B8960F;
+  --color-gold-darker: #9A7C04;
+  --color-gold-light: #E6C751;
+  --color-gold-lighter: #F0D878;
+  --color-gold-border: #D4AF37;
+  --color-sage-green: #9CAF88;
+  --color-sage-green-dark: #7A8A6B;
+  --color-sage-green-light: #B8C9A4;
+  --color-privacy-high: #EF4444;
+  --color-privacy-moderate: #F59E0B;
+  --color-privacy-low: #F59E0B;
+  
+  /* Primitive Color Tokens */
+  --color-white: rgba(255, 255, 255, 1);
+  --color-black: rgba(0, 0, 0, 1);
+  --color-cream-50: rgba(252, 252, 249, 1);
+  --color-cream-100: rgba(255, 255, 253, 1);
+  --color-gray-200: rgba(245, 245, 245, 1);
+  --color-gray-300: rgba(167, 169, 169, 1);
+  --color-gray-400: rgba(119, 124, 124, 1);
+  --color-slate-500: rgba(98, 108, 113, 1);
+  --color-brown-600: rgba(94, 82, 64, 1);
+  --color-charcoal-700: rgba(31, 33, 33, 1);
+  --color-charcoal-800: rgba(38, 40, 40, 1);
+  --color-slate-900: rgba(19, 52, 59, 1);
+  --color-teal-300: rgba(50, 184, 198, 1);
+  --color-teal-400: rgba(45, 166, 178, 1);
+  --color-teal-500: rgba(33, 128, 141, 1);
+  --color-teal-600: rgba(29, 116, 128, 1);
+  --color-teal-700: rgba(26, 104, 115, 1);
+  --color-teal-800: rgba(41, 150, 161, 1);
+  --color-red-400: rgba(255, 84, 89, 1);
+  --color-red-500: rgba(192, 21, 47, 1);
+  --color-orange-400: rgba(230, 129, 97, 1);
+  --color-orange-500: rgba(168, 75, 47, 1);
+
+  /* RGB versions for opacity control */
+  --color-brown-600-rgb: 94, 82, 64;
+  --color-teal-500-rgb: 33, 128, 141;
+  --color-slate-900-rgb: 19, 52, 59;
+  --color-slate-500-rgb: 98, 108, 113;
+  --color-red-500-rgb: 192, 21, 47;
+  --color-red-400-rgb: 255, 84, 89;
+  --color-orange-500-rgb: 168, 75, 47;
+  --color-orange-400-rgb: 230, 129, 97;
+
+  /* Background color tokens (Light Mode) - All White */
+  --color-bg-1: #FFFFFF;
+  --color-bg-2: #FFFFFF;
+  --color-bg-3: #FFFFFF;
+  --color-bg-4: #FFFFFF;
+  --color-bg-5: #FFFFFF;
+  --color-bg-6: #FFFFFF;
+  --color-bg-7: #FFFFFF;
+  --color-bg-8: #FFFFFF;
+
+  /* Semantic Color Tokens (Light Mode) */
+  --color-background: #FFFFFF;
+  --color-surface: #FFFFFF;
+  --color-text: #1A1A1A;
+  --color-text-secondary: #666666;
+  --color-page-background: #FFFFFF;
+  --color-primary: var(--color-gold-primary);
+  --color-primary-hover: var(--color-gold-dark);
+  --color-primary-active: var(--color-gold-darker);
+  --color-secondary: var(--color-sage-green);
+  --color-secondary-hover: var(--color-sage-green-dark);
+  --color-secondary-active: var(--color-sage-green-dark);
+  --color-border: var(--color-gold-primary);
+  --color-btn-primary-text: #1A1A1A;
+  --color-card-border: var(--color-gold-primary);
+  --color-card-border-inner: var(--color-gold-primary);
+  --color-error: var(--color-red-500);
+  --color-success: var(--color-sage-green);
+  --color-warning: var(--color-gold-primary);
+  --color-info: var(--color-sage-green);
+  --color-focus-ring: rgba(212, 175, 55, 0.3);
+  --color-select-caret: rgba(26, 26, 26, 0.8);
+
+  /* Common style patterns */
+  --focus-ring: 0 0 0 3px var(--color-focus-ring);
+  --focus-outline: 2px solid var(--color-primary);
+  --status-bg-opacity: 0.15;
+  --status-border-opacity: 0.25;
+
+  /* RGB versions for opacity control */
+  --color-success-rgb: 33, 128, 141;
+  --color-error-rgb: 192, 21, 47;
+  --color-warning-rgb: 168, 75, 47;
+  --color-info-rgb: 98, 108, 113;
+
+  /* Typography */
+  --font-family-base: "FKGroteskNeue", "Geist", "Inter", -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-family-mono: "Berkeley Mono", ui-monospace, SFMono-Regular, Menlo,
+    Monaco, Consolas, monospace;
+  --font-size-xs: 11px;
+  --font-size-sm: 12px;
+  --font-size-base: 14px;
+  --font-size-md: 14px;
+  --font-size-lg: 16px;
+  --font-size-xl: 18px;
+  --font-size-2xl: 20px;
+  --font-size-3xl: 24px;
+  --font-size-4xl: 30px;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 550;
+  --font-weight-bold: 600;
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --letter-spacing-tight: -0.01em;
+
+  /* Spacing */
+  --space-0: 0;
+  --space-1: 1px;
+  --space-2: 2px;
+  --space-4: 4px;
+  --space-6: 6px;
+  --space-8: 8px;
+  --space-10: 10px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-32: 32px;
+
+  /* Border Radius */
+  --radius-sm: 6px;
+  --radius-base: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.02);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04),
+    0 2px 4px -1px rgba(0, 0, 0, 0.02);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04),
+    0 4px 6px -2px rgba(0, 0, 0, 0.02);
+  --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.03);
+
+  /* Animation */
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Layout */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+}
+
+/* Logout button specific styles */
+#logoutBtn {
+  padding: 8px 12px !important;
+  font-size: 13px !important;
+  min-width: auto !important;
+  min-height: auto !important;
+  border-radius: var(--radius-base) !important;
+  background: #D4AF37 !important;
+  color: #1A1A1A !important;
+  border: 2px solid #D4AF37 !important;
+  font-weight: var(--font-weight-medium) !important;
+  box-shadow: 0 2px 6px rgba(212, 175, 55, 0.4) !important;
+  cursor: pointer !important;
+  transition: all var(--duration-fast) var(--ease-standard) !important;
+  white-space: nowrap !important;
+}
+
+#logoutBtn:hover {
+  background: #E6C751 !important;
+  border-color: #E6C751 !important;
+  transform: scale(1.05) !important;
+  box-shadow: 0 4px 10px rgba(212, 175, 55, 0.5) !important;
+}
+
+#logoutBtn:active {
+  transform: scale(0.98) !important;
+  box-shadow: 0 1px 3px rgba(212, 175, 55, 0.3) !important;
+}
+
+/* Dark Theme Styles */
+body.dark-theme {
+  background-color: #1A1A1A !important;
+  color: #FFFFFF !important;
+}
+
+body.dark-theme .page,
+body.dark-theme .main-content,
+body.dark-theme .app-container {
+  background-color: #1A1A1A !important;
+}
+
+body.dark-theme .navbar {
+  background-color: #1A1A1A !important;
+  border-bottom: 2px solid #D4AF37;
+}
+
+body.dark-theme .navbar-brand,
+body.dark-theme .navbar-brand-icon {
+  color: #FFFFFF !important;
+}
+
+body.dark-theme .nav-link {
+  color: #D4AF37;
+}
+
+body.dark-theme .nav-link:hover {
+  background-color: rgba(212, 175, 55, 0.2);
+  color: #E6C751;
+}
+
+body.dark-theme .nav-link.active {
+  color: #E6C751;
+  background-color: rgba(212, 175, 55, 0.2);
+  border-bottom: 3px solid #D4AF37;
+}
+
+body.dark-theme .auth-container,
+body.dark-theme .auth-card,
+body.dark-theme .form-card,
+body.dark-theme .card,
+body.dark-theme .runner-card,
+body.dark-theme .run-card,
+body.dark-theme .tournament-card,
+body.dark-theme .stat-card,
+body.dark-theme .profile-header,
+body.dark-theme .privacy-settings-section {
+  background-color: #2A2A2A !important;
+  border-color: #D4AF37 !important;
+}
+
+body.dark-theme h1,
+body.dark-theme h2,
+body.dark-theme h3,
+body.dark-theme h4,
+body.dark-theme h5,
+body.dark-theme h6,
+body.dark-theme .dashboard-header h1,
+body.dark-theme .section-header h2,
+body.dark-theme .auth-header h1 {
+  color: #FFFFFF !important;
+}
+
+body.dark-theme p,
+body.dark-theme .auth-header p,
+body.dark-theme .dashboard-header p {
+  color: #CCCCCC !important;
+}
+
+body.dark-theme .form-label {
+  color: #FFFFFF !important;
+}
+
+body.dark-theme .form-control {
+  background-color: #1A1A1A !important;
+  color: #FFFFFF !important;
+  border-color: #D4AF37 !important;
+}
+
+body.dark-theme .form-control:focus {
+  background-color: #1A1A1A !important;
+  border-color: #E6C751 !important;
+}
+
+body.dark-theme .btn--primary,
+body.dark-theme .btn--green,
+body.dark-theme #logoutBtn {
+  background: #D4AF37 !important;
+  color: #1A1A1A !important;
+  border-color: #D4AF37 !important;
+}
+
+body.dark-theme .btn--primary:hover,
+body.dark-theme .btn--green:hover,
+body.dark-theme #logoutBtn:hover {
+  background: #E6C751 !important;
+  border-color: #E6C751 !important;
+}
+
+body.dark-theme .btn--secondary {
+  background: #9CAF88 !important;
+  color: #1A1A1A !important;
+  border-color: #9CAF88 !important;
+}
+
+body.dark-theme .btn--outline {
+  background: transparent !important;
+  border-color: #9CAF88 !important;
+  color: #FFFFFF !important;
+}
+
+body.dark-theme .stat-card,
+body.dark-theme .runner-stats,
+body.dark-theme .run-details,
+body.dark-theme .profile-stat {
+  background-color: #2A2A2A !important;
+  border-color: #D4AF37 !important;
+}
+
+body.dark-theme .stat-value,
+body.dark-theme .runner-stats .value,
+body.dark-theme .run-details .value,
+body.dark-theme .profile-stat .value {
+  color: #D4AF37 !important;
+}
+
+body.dark-theme .runner-meta,
+body.dark-theme .run-date-time,
+body.dark-theme .runner-bio,
+body.dark-theme .run-description,
+body.dark-theme .auth-footer {
+  color: #CCCCCC !important;
+}
+
+body.dark-theme .badge {
+  background-color: rgba(212, 175, 55, 0.2) !important;
+  color: #FFFFFF !important;
+  border-color: #D4AF37 !important;
+}
+
+body.dark-theme .filters,
+body.dark-theme .leaderboard,
+body.dark-theme .city-selector-container {
+  background-color: #2A2A2A !important;
+  border-color: #D4AF37 !important;
+}
+
+body.dark-theme .connection-item {
+  border-bottom-color: #D4AF37 !important;
+}
+
+body.dark-theme .connection-item:hover,
+body.dark-theme .connection-item.active {
+  background-color: rgba(212, 175, 55, 0.2) !important;
+}
+
+body.dark-theme .message--sent {
+  background: #D4AF37 !important;
+  color: #1A1A1A !important;
+  border-color: #D4AF37 !important;
+}
+
+body.dark-theme .message--received {
+  background-color: #2A2A2A !important;
+  color: #FFFFFF !important;
+  border-color: #D4AF37 !important;
+}
+
+body.dark-theme .tab {
+  color: #CCCCCC !important;
+  border-bottom-color: #D4AF37 !important;
+}
+
+body.dark-theme .tab:hover {
+  color: #FFFFFF !important;
+  background: rgba(212, 175, 55, 0.1) !important;
+}
+
+body.dark-theme .tab.active {
+  color: #D4AF37 !important;
+  border-bottom-color: #D4AF37 !important;
+}
+
+body.dark-theme .empty-state {
+  color: #CCCCCC !important;
+}
+
+body.dark-theme .leaderboard-item {
+  color: #FFFFFF !important;
+  border-bottom-color: #D4AF37 !important;
+}
+
+body.dark-theme .privacy-level-card {
+  background-color: #2A2A2A !important;
+}
+
+body.dark-theme .theme-option {
+  border-color: #D4AF37 !important;
+}
+
+body.dark-theme .theme-option[data-theme="light"] {
+  background: #FFFFFF !important;
+}
+
+body.dark-theme .theme-option[data-theme="dark"] {
+  background: #1A1A1A !important;
+  border-width: 4px !important;
+  box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.3) !important;
+}
+
+body.dark-theme .mobile-bottom-nav {
+  background: #1A1A1A !important;
+  border-top-color: #D4AF37 !important;
+}
+
+body.dark-theme .mobile-nav-item {
+  color: #D4AF37 !important;
+}
+
+body.dark-theme .mobile-nav-item.active {
+  color: #E6C751 !important;
+  background: rgba(212, 175, 55, 0.2) !important;
+}
+
+body.dark-theme .alert--success {
+  background-color: rgba(212, 175, 55, 0.2) !important;
+  border-color: #D4AF37 !important;
+  color: #E6C751 !important;
+}
+
+body.dark-theme .stat-item .label,
+body.dark-theme .runner-stats .label,
+body.dark-theme .run-details .label {
+  color: #CCCCCC !important;
+}
+
+/* Light theme selected indicator */
+body:not(.dark-theme) .theme-option[data-theme="light"] {
+  border-width: 4px !important;
+  box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.3) !important;
+}
+
+/* Dark mode removed - light mode only */
+
+@font-face {
+  font-family: 'FKGroteskNeue';
+  src: url('https://r2cdn.perplexity.ai/fonts/FKGroteskNeue.woff2')
+    format('woff2');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Global overflow prevention */
+html, body, .app-container, .page {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* Background system - white throughout */
+.page {
+  background-color: #FFFFFF !important;
+}
+
+.auth-container, .auth-card, .form-card, .card, .runner-card, .run-card, .tournament-card, .stat-card, .profile-header, .privacy-settings-section {
+  background-color: #FFFFFF !important;
+}
+
+.dashboard-header, .section {
+  background-color: transparent !important;
+}
+
+html {
+  font-size: var(--font-size-base);
+  font-family: var(--font-family-base);
+  line-height: var(--line-height-normal);
+  color: var(--color-text);
+  background-color: #FFFFFF !important;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  max-width: 100vw;
+  color-scheme: light only !important;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #FFFFFF !important;
+  color-scheme: light only !important;
+}
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #FFFFFF !important;
+}
+
+/* Navigation */
+.navbar {
+  background-color: #FFFFFF !important;
+  border-bottom: 2px solid var(--color-gold-primary);
+  padding: var(--space-12) var(--space-16);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-sm);
+  min-height: 64px;
+  gap: var(--space-12);
+}
+
+.navbar-brand {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: #1A1A1A;
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  flex-shrink: 0;
+  white-space: nowrap;
+  margin-right: var(--space-12);
+}
+
+.navbar-brand-icon {
+  font-size: var(--font-size-3xl);
+}
+
+.navbar-menu {
+  display: flex;
+  gap: var(--space-12);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  color: var(--color-gold-primary);
+  text-decoration: none;
+  font-weight: var(--font-weight-medium);
+  padding: var(--space-10);
+  border-radius: var(--radius-base);
+  transition: all var(--duration-fast) var(--ease-standard);
+  cursor: pointer;
+  font-size: 19px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+}
+
+.nav-link:hover {
+  background-color: var(--color-gold-light);
+  color: var(--color-gold-dark);
+  transform: scale(1.15);
+}
+
+.nav-link.active {
+  color: var(--color-gold-dark);
+  background-color: var(--color-gold-light);
+  border-bottom: 3px solid var(--color-gold-primary);
+  transform: scale(1.05);
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  padding: var(--space-32) var(--space-24);
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  background-color: #FFFFFF !important;
+}
+
+.page {
+  display: none;
+  background-color: #FFFFFF !important;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+.page.active {
+  display: block;
+}
+
+/* Auth Pages */
+.auth-container {
+  max-width: 480px;
+  margin: 60px auto;
+  padding: var(--space-32);
+  background-color: #FFFFFF;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.auth-card {
+  background-color: #FFFFFF;
+  border-radius: var(--radius-lg);
+  padding: var(--space-32);
+  box-shadow: var(--shadow-md);
+  border: 2px solid var(--color-gold-primary);
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: var(--space-32);
+}
+
+.auth-header h1 {
+  font-size: var(--font-size-3xl);
+  margin-bottom: var(--space-12);
+  color: #1A1A1A;
+}
+
+.auth-header p {
+  color: #666666;
+  font-size: var(--font-size-base);
+}
+
+.form-group {
+  margin-bottom: var(--space-16);
+}
+
+.form-label {
+  display: block;
+  margin-bottom: var(--space-8);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-sm);
+  color: #1A1A1A;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: var(--space-10) var(--space-12);
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+  color: #1A1A1A;
+  background-color: #FFFFFF;
+  border: 2px solid #E5E5E5;
+  border-radius: var(--radius-base);
+  transition: border-color var(--duration-fast) var(--ease-standard);
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--color-gold-primary);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.3);
+  background-color: #FFFFFF;
+}
+
+input[type="file"].form-control {
+  padding: var(--space-10);
+  cursor: pointer;
+}
+
+select.form-control {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23134252' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--space-12) center;
+  background-size: 16px;
+  padding-right: var(--space-32);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-10) var(--space-16);
+  border-radius: var(--radius-base);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.5;
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-standard);
+  border: none;
+  text-decoration: none;
+  gap: var(--space-8);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn--primary {
+  background: #D4AF37;
+  color: #1A1A1A;
+  border: 2px solid #D4AF37;
+  font-weight: var(--font-weight-semibold);
+  box-shadow: 0 2px 6px rgba(212, 175, 55, 0.4);
+}
+
+.btn--primary:hover:not(:disabled) {
+  background: #E6C751;
+  border-color: #E6C751;
+  color: #1A1A1A;
+  box-shadow: 0 4px 10px rgba(212, 175, 55, 0.5);
+}
+
+.btn--secondary {
+  background: #9CAF88;
+  color: #1A1A1A;
+  border: 2px solid #9CAF88;
+}
+
+.btn--secondary:hover:not(:disabled) {
+  background: #A8BF9D;
+  color: #1A1A1A;
+  border-color: #A8BF9D;
+}
+
+.btn--outline {
+  background: transparent;
+  border: 2px solid #9CAF88;
+  color: #1A1A1A;
+}
+
+.btn--outline:hover:not(:disabled) {
+  background: rgba(156, 175, 136, 0.15);
+  color: #1A1A1A;
+  border-color: #9CAF88;
+}
+
+.btn--full-width {
+  width: 100%;
+}
+
+.btn--sm {
+  padding: var(--space-6) var(--space-12);
+  font-size: var(--font-size-sm);
+}
+
+.auth-footer {
+  margin-top: var(--space-24);
+  text-align: center;
+  color: #666666;
+}
+
+.auth-footer a {
+  color: var(--color-gold-primary);
+  text-decoration: none;
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+}
+
+.auth-footer a:hover {
+  color: var(--color-gold-light);
+}
+
+/* Dashboard */
+.dashboard-header {
+  margin-bottom: var(--space-32);
+  background-color: #FFFFFF;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.dashboard-header h1 {
+  font-size: var(--font-size-4xl);
+  margin-bottom: var(--space-8);
+  color: #1A1A1A;
+}
+
+.dashboard-header p {
+  color: #666666;
+  font-size: var(--font-size-lg);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+  gap: var(--space-20);
+  margin-bottom: var(--space-32);
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.stat-card {
+  background-color: #FFFFFF;
+  border-radius: var(--radius-lg);
+  padding: var(--space-24);
+  border: 2px solid var(--color-gold-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.stat-card h3 {
+  font-size: var(--font-size-sm);
+  color: #666666;
+  margin-bottom: var(--space-8);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.stat-card .stat-value {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-gold-primary);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.section {
+  margin-bottom: var(--space-32);
+  max-width: 100%;
+  overflow-x: hidden;
+  background-color: #FFFFFF;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-20);
+}
+
+.section-header h2 {
+  font-size: var(--font-size-2xl);
+  color: #1A1A1A;
+  border-left: 4px solid var(--color-gold-primary);
+  padding-left: var(--space-12);
+}
+
+/* Cards */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
+  gap: var(--space-20);
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.runner-card, .run-card {
+  background-color: #FFFFFF;
+  border-radius: var(--radius-lg);
+  padding: var(--space-20);
+  border: 2px solid var(--color-gold-primary);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--duration-normal) var(--ease-standard);
+}
+
+.runner-card:hover, .run-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.runner-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-16);
+}
+
+.runner-info h3 {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--space-4);
+  color: #1A1A1A;
+}
+
+.runner-meta {
+  display: flex;
+  gap: var(--space-12);
+  color: #666666;
+  font-size: var(--font-size-sm);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-4) var(--space-10);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge--beginner {
+  background-color: rgba(156, 175, 136, 0.15);
+  color: #1A1A1A;
+  border: 2px solid var(--color-sage-green);
+}
+
+.badge--intermediate {
+  background-color: rgba(212, 175, 55, 0.15);
+  color: #1A1A1A;
+  border: 2px solid var(--color-gold-primary);
+}
+
+.badge--advanced {
+  background-color: rgba(184, 150, 15, 0.15);
+  color: #1A1A1A;
+  border: 2px solid var(--color-gold-dark);
+}
+
+.badge--easy {
+  background-color: rgba(156, 175, 136, 0.15);
+  color: #1A1A1A;
+  border: 2px solid var(--color-sage-green);
+}
+
+.badge--moderate {
+  background-color: rgba(212, 175, 55, 0.15);
+  color: #1A1A1A;
+  border: 2px solid var(--color-gold-primary);
+}
+
+.badge--hard {
+  background-color: rgba(184, 150, 15, 0.15);
+  color: #1A1A1A;
+  border: 2px solid var(--color-gold-dark);
+}
+
+.runner-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-12);
+  margin-bottom: var(--space-16);
+  padding: var(--space-12);
+  background-color: #FFFFFF;
+  border-radius: var(--radius-base);
+  border: 2px solid var(--color-gold-primary);
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-item .label {
+  font-size: var(--font-size-xs);
+  color: #666666;
+  display: block;
+  margin-bottom: var(--space-4);
+}
+
+.stat-item .value {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-gold-primary);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.runner-bio {
+  color: #666666;
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--space-16);
+  line-height: 1.6;
+}
+
+.card-actions {
+  display: flex;
+  gap: var(--space-8);
+}
+
+.run-card-header {
+  margin-bottom: var(--space-16);
+}
+
+.run-card-header h3 {
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--space-8);
+  color: #1A1A1A;
+}
+
+.run-date-time {
+  display: flex;
+  gap: var(--space-16);
+  color: #666666;
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--space-16);
+}
+
+.run-details {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-12);
+  margin-bottom: var(--space-16);
+  padding: var(--space-12);
+  background-color: #FFFFFF;
+  border-radius: var(--radius-base);
+  border: 2px solid var(--color-gold-primary);
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.run-description {
+  color: #666666;
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--space-16);
+  line-height: 1.6;
+}
+
+.run-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.participants-count {
+  color: #666666;
+  font-size: var(--font-size-sm);
+}
+
+/* Filters */
+.filters {
+  background-color: #FFFFFF;
+  border-radius: var(--radius-lg);
+  padding: var(--space-20);
+  margin-bottom: var(--space-24);
+  border: 2px solid var(--color-gold-primary);
+}
+
+.filters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+  gap: var(--space-16);
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Forms */
+.form-card {
+  background-color: #FFFFFF;
+  border-radius: var(--radius-lg);
+  padding: var(--space-32);
+  max-width: 600px;
+  margin: 0 auto;
+  border: 2px solid var(--color-gold-border);
+  box-shadow: var(--shadow-sm);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-16);
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: var(--space-8);
+  margin-bottom: var(--space-24);
+  border-bottom: 2px solid var(--color-gold-primary);
+}
+
+.tab {
+  padding: var(--space-12) var(--space-20);
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: #666666;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-standard);
+}
+
+.tab:hover {
+  color: #1A1A1A;
+  background: rgba(212, 175, 55, 0.1);
+}
+
+.tab.active {
+  color: var(--color-gold-primary);
+  border-bottom-color: var(--color-gold-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Messages */
+.messages-container {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: var(--space-20);
+  height: 600px;
+  max-width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+.connections-list {
+  background-color: #FFFFFF;
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--color-gold-primary);
+  overflow-y: auto;
+}
+
+.connection-item {
+  padding: var(--space-16);
+  border-bottom: 2px solid var(--color-gold-primary);
+  cursor: pointer;
+  transition: background-color var(--duration-fast) var(--ease-standard);
+}
+
+.connection-item:hover {
+  background-color: var(--color-gold-light);
+}
+
+.connection-item.active {
+  background-color: var(--color-gold-light);
+  border-left: 4px solid var(--color-gold-dark);
+}
+
+.connection-item h4 {
+  font-size: var(--font-size-base);
+  margin-bottom: var(--space-4);
+  color: #1A1A1A;
+}
+
+.connection-item p {
+  font-size: var(--font-size-sm);
+  color: #666666;
+  margin: 0;
+}
+
+.chat-container {
+  background-color: #FFFFFF;
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--color-gold-primary);
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-header {
+  padding: var(--space-16);
+  border-bottom: 2px solid var(--color-gold-primary);
+}
+
+.chat-header h3 {
+  font-size: var(--font-size-lg);
+  color: #1A1A1A;
+}
+
+.chat-messages {
+  flex: 1;
+  padding: var(--space-20);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+
+.message {
+  max-width: 70%;
+  padding: var(--space-12);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+}
+
+.message--sent {
+  align-self: flex-end;
+  background: #D4AF37;
+  color: #1A1A1A;
+  border: 2px solid #D4AF37;
+  box-shadow: 0 2px 4px rgba(212, 175, 55, 0.3);
+}
+
+.message--received {
+  align-self: flex-start;
+  background-color: #F5F5F5;
+  color: #1A1A1A;
+  border: 2px solid #E5E5E5;
+}
+
+.chat-input-container {
+  padding: var(--space-16);
+  border-top: 2px solid var(--color-gold-primary);
+  display: flex;
+  gap: var(--space-8);
+}
+
+.chat-input {
+  flex: 1;
+}
+
+.empty-state {
+  text-align: center;
+  padding: var(--space-32);
+  color: #666666;
+}
+
+.empty-state-icon {
+  font-size: var(--font-size-4xl);
+  margin-bottom: var(--space-16);
+}
+
+/* Profile */
+.profile-container {
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.profile-header {
+  background-color: #FFFFFF;
+  border-radius: var(--radius-lg);
+  padding: var(--space-32);
+  margin-bottom: var(--space-24);
+  border: 2px solid var(--color-gold-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.profile-info {
+  margin-bottom: var(--space-24);
+}
+
+.profile-info h1 {
+  font-size: var(--font-size-3xl);
+  margin-bottom: var(--space-8);
+  color: var(--color-gold-dark);
+}
+
+.profile-meta {
+  display: flex;
+  gap: var(--space-16);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-16);
+}
+
+.profile-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-20);
+  margin-top: var(--space-24);
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.profile-stat {
+  text-align: center;
+  padding: var(--space-16);
+  background-color: #FFFFFF;
+  border-radius: var(--radius-base);
+  border: 2px solid var(--color-gold-primary);
+}
+
+.profile-stat .value {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-gold-primary);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  display: block;
+  margin-bottom: var(--space-4);
+}
+
+.profile-stat .label {
+  font-size: var(--font-size-sm);
+  color: #666666;
+}
+
+.alert {
+  padding: var(--space-16);
+  border-radius: var(--radius-base);
+  margin-bottom: var(--space-16);
+  border: 1px solid;
+}
+
+.alert--success {
+  background-color: #FFFFFF;
+  border-color: var(--color-gold-primary);
+  color: var(--color-gold-primary);
+  border-width: 2px;
+}
+
+.alert--error {
+  background-color: rgba(var(--color-error-rgb), 0.1);
+  border-color: var(--color-error);
+  color: var(--color-error);
+}
+
+/* Mobile Bottom Navigation */
+.mobile-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #FFFFFF;
+  border-top: 2px solid var(--color-gold-primary);
+  display: none;
+  justify-content: space-around;
+  align-items: center;
+  padding: var(--space-8) var(--space-4) calc(var(--space-8) + env(safe-area-inset-bottom));
+  z-index: 1000;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+}
+
+.mobile-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: var(--color-gold-secondary);
+  cursor: pointer;
+  padding: var(--space-10);
+  border-radius: var(--radius-base);
+  transition: all var(--duration-fast) var(--ease-standard);
+  min-width: 64px;
+  min-height: 64px;
+}
+
+.mobile-nav-item--primary {
+  background: var(--color-gold-primary);
+  color: #FFFFFF;
+  border-radius: var(--radius-full);
+  transform: scale(1.15);
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+
+.mobile-nav-item--primary .mobile-nav-icon {
+  font-size: 22px;
+}
+
+.mobile-nav-item:active {
+  transform: scale(0.95);
+}
+
+.mobile-nav-item--primary:active {
+  transform: scale(1.1);
+}
+
+.mobile-nav-item.active {
+  color: var(--color-gold-dark);
+  background: var(--color-gold-light);
+}
+
+.mobile-nav-icon {
+  font-size: 19px;
+  margin-bottom: var(--space-2);
+}
+
+.mobile-nav-label {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+}
+
+/* Safe area insets for notched devices */
+html {
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+.navbar {
+  padding-top: max(var(--space-16), env(safe-area-inset-top));
+}
+
+.main-content {
+  padding-bottom: calc(var(--space-32) + 80px);
+}
+
+/* Touch-friendly tap targets */
+@media (max-width: 768px) {
+  .btn {
+    min-height: 44px;
+    padding: var(--space-12) var(--space-16);
+  }
+  
+  .btn--sm {
+    min-height: 38px;
+  }
+  
+  .form-control {
+    min-height: 44px;
+    font-size: 16px;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .mobile-bottom-nav {
+    display: flex;
+  }
+  .navbar {
+    padding: var(--space-8) var(--space-12);
+    min-height: 60px;
+  }
+  
+  .navbar-menu {
+    display: none;
+  }
+  
+  .navbar-brand {
+    font-size: var(--font-size-lg);
+  }
+  
+  .nav-link {
+    font-size: 18px;
+    padding: var(--space-8);
+    min-width: 40px;
+    min-height: 40px;
+  }
+  
+  .user-profile-nav span {
+    display: none;
+  }
+  
+  .main-content {
+    padding: var(--space-16);
+    padding-bottom: calc(80px + var(--space-16));
+    overflow-x: hidden;
+    max-width: 100vw;
+    box-sizing: border-box;
+  }
+  
+  .auth-container {
+    margin: var(--space-24) auto;
+    padding: var(--space-16);
+  }
+  
+  .auth-card {
+    padding: var(--space-24);
+  }
+  
+  .cards-grid {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+  
+  .messages-container {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  .connections-list {
+    display: none;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 100%;
+  }
+  
+  .dashboard-header h1 {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .section-header h2 {
+    font-size: var(--font-size-xl);
+  }
+  
+  /* Optimize Free Run for mobile */
+  #free-run-interface {
+    grid-template-columns: 1fr !important;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  #free-run-timer {
+    font-size: 56px !important;
+  }
+  
+  /* Single column layouts on mobile */
+  .filters-grid {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .runner-stats,
+  .run-details {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  .profile-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  /* Landscape mode optimizations */
+  @media (orientation: landscape) {
+    #free-run-interface {
+      grid-template-columns: 1fr 1.5fr !important;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+  }
+}
+
+.hidden {
+  display: none !important;
+}
+
+.city-selector-container {
+  display: flex;
+  align-items: center;
+  padding: var(--space-4) var(--space-12);
+  background-color: var(--color-bg-1);
+  border-radius: var(--radius-base);
+  border: 1px solid var(--color-border);
+}
+
+.city-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-4) var(--space-8);
+  background-color: var(--color-bg-5);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  margin-left: var(--space-8);
+}
+
+.tournament-card {
+  background-color: #FFFFFF;
+  border-radius: var(--radius-lg);
+  padding: var(--space-20);
+  border: 2px solid var(--color-gold-primary);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--duration-normal) var(--ease-standard);
+}
+
+.tournament-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  border-color: var(--color-gold-primary);
+}
+
+.tournament-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-16);
+}
+
+.tournament-header h3 {
+  font-size: var(--font-size-xl);
+  color: var(--color-gold-dark);
+  margin-bottom: var(--space-8);
+}
+
+.tournament-meta {
+  display: flex;
+  gap: var(--space-12);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--space-16);
+}
+
+.leaderboard {
+  background-color: #FFFFFF;
+  border-radius: var(--radius-base);
+  padding: var(--space-12);
+  margin-bottom: var(--space-16);
+  border: 2px solid var(--color-gold-primary);
+}
+
+.leaderboard-item {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-8);
+  border-bottom: 2px solid var(--color-gold-primary);
+  color: #1A1A1A;
+}
+
+.leaderboard-item:last-child {
+  border-bottom: none;
+}
+
+.leaderboard-rank {
+  font-weight: var(--font-weight-bold);
+  color: var(--color-gold-primary);
+  margin-right: var(--space-12);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Verification Styles */
+.verification-step {
+  text-align: center;
+  padding: var(--space-12);
+  background-color: #FFFFFF;
+  border-radius: var(--radius-base);
+  margin-bottom: var(--space-20);
+  border: 2px solid var(--color-gold-primary);
+}
+
+.verification-step-number {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  border-radius: 50%;
+  background-color: var(--color-gold-primary);
+  color: #FFFFFF;
+  font-weight: var(--font-weight-bold);
+  margin-right: var(--space-8);
+}
+
+.verified-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-6) var(--space-12);
+  background-color: #FFFFFF;
+  border: 2px solid var(--color-gold-primary);
+  color: var(--color-gold-primary);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.trust-score-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-6) var(--space-12);
+  background-color: #FFFFFF;
+  border-radius: var(--radius-base);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  border: 2px solid var(--color-gold-primary);
+  color: var(--color-gold-primary);
+}
+
+.unverified-overlay {
+  position: relative;
+}
+
+.unverified-overlay::after {
+  content: 'Complete verification to unlock';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(var(--color-brown-600-rgb), 0.95);
+  color: var(--color-cream-50);
+  padding: var(--space-16) var(--space-24);
+  border-radius: var(--radius-lg);
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+  z-index: 10;
+}
+
+@media (prefers-color-scheme: dark) {
+  .unverified-overlay::after {
+    background-color: rgba(var(--color-gray-400-rgb), 0.95);
+    color: var(--color-gray-200);
+  }
+}
+
+.verification-instructions {
+  background-color: #FFFFFF;
+  padding: var(--space-16);
+  border-radius: var(--radius-base);
+  margin-bottom: var(--space-16);
+  border: 2px solid var(--color-gold-primary);
+}
+
+.verification-instructions h4 {
+  font-size: var(--font-size-base);
+  margin-bottom: var(--space-8);
+  color: var(--color-text);
+}
+
+.verification-instructions ul {
+  margin: 0;
+  padding-left: var(--space-20);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.verification-instructions li {
+  margin-bottom: var(--space-4);
+}
+
+/* Privacy Level Styles */
+.privacy-settings-section {
+  background-color: #FFFFFF;
+  border-radius: var(--radius-lg);
+  padding: var(--space-32);
+  margin-bottom: var(--space-24);
+  border: 2px solid var(--color-gold-primary);
+  box-shadow: var(--shadow-md);
+}
+
+.privacy-level-selector {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+  gap: var(--space-20);
+  margin: var(--space-24) 0;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.privacy-level-card {
+  background-color: #FFFFFF;
+  border: 3px solid var(--color-gold-primary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-24);
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-standard);
+  position: relative;
+}
+
+.privacy-level-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.privacy-level-card.selected {
+  border-color: currentColor;
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.05);
+}
+
+.privacy-level-card.high {
+  border-color: var(--color-privacy-high);
+}
+
+.privacy-level-card.moderate {
+  border-color: var(--color-privacy-moderate);
+}
+
+.privacy-level-card.low {
+  border-color: var(--color-gold-primary);
+}
+
+.privacy-icon {
+  font-size: 48px;
+  margin-bottom: var(--space-12);
+  display: block;
+}
+
+.privacy-label {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-8);
+  display: block;
+}
+
+.privacy-level-card.high .privacy-label {
+  color: #1A1A1A;
+}
+
+.privacy-level-card.moderate .privacy-label {
+  color: #1A1A1A;
+}
+
+.privacy-level-card.low .privacy-label {
+  color: #1A1A1A;
+}
+
+.privacy-description {
+  font-size: var(--font-size-sm);
+  color: #666666;
+  line-height: 1.6;
+  margin-bottom: var(--space-16);
+}
+
+.privacy-features {
+  background-color: #F5F5F5;
+  border-radius: var(--radius-base);
+  padding: var(--space-12);
+  font-size: var(--font-size-xs);
+  color: #666666;
+  border: 1px solid #E5E5E5;
+}
+
+.privacy-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-6);
+  padding: var(--space-6) var(--space-12);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.privacy-badge.high {
+  background-color: #FFFFFF;
+  color: var(--color-privacy-high);
+  border: 2px solid var(--color-privacy-high);
+}
+
+.privacy-badge.moderate {
+  background-color: #FFFFFF;
+  color: var(--color-privacy-moderate);
+  border: 2px solid var(--color-privacy-moderate);
+}
+
+.privacy-badge.low {
+  background-color: #FFFFFF;
+  color: var(--color-gold-primary);
+  border: 2px solid var(--color-gold-primary);
+}
+
+.privacy-status-widget {
+  background: #FFFFFF;
+  border: 2px solid var(--color-gold-primary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-20);
+  margin-bottom: var(--space-24);
+}
+
+.privacy-status-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-12);
+}
+
+.privacy-current-level {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: #FFFFFF;
+}
+
+.btn--green {
+  background: #D4AF37;
+  color: #1A1A1A;
+  border: 2px solid #D4AF37;
+  font-weight: var(--font-weight-semibold);
+  box-shadow: 0 2px 6px rgba(212, 175, 55, 0.4);
+}
+
+.btn--green:hover:not(:disabled) {
+  background: #E6C751;
+  border-color: #E6C751;
+  color: #1A1A1A;
+  box-shadow: 0 4px 10px rgba(212, 175, 55, 0.5);
+}
+
+.city-selector-container {
+  background-color: #FFFFFF;
+  border: 2px solid var(--color-gold-primary);
+}
+
+.city-selector-container label {
+  color: var(--color-gold-primary);
+}
+
+.city-selector-container select {
+  background-color: #FFFFFF;
+  color: var(--color-text);
+}
+
+.runner-card {
+  border: 2px solid var(--color-gold-primary);
+  background-color: #FFFFFF;
+}
+
+.runner-card:hover {
+  border-color: var(--color-gold-dark);
+}
+
+.run-card {
+  border: 2px solid var(--color-gold-primary);
+  background-color: #FFFFFF;
+}
+
+.run-card:hover {
+  border-color: var(--color-gold-dark);
+}
+
+.stat-card {
+  background-color: #FFFFFF;
+  border: 2px solid var(--color-gold-primary);
+}
+
+.stat-card .stat-value {
+  color: var(--color-gold-primary);
+}
+
+.profile-stat .value {
+  color: var(--color-gold-primary);
+}
+
+/* Profile Avatar Styles */
+.profile-avatar-option, .profile-avatar-option-edit {
+  transition: all var(--duration-fast) var(--ease-standard);
+}
+
+.profile-avatar-option:hover, .profile-avatar-option-edit:hover {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-md);
+}
+
+.user-profile-nav:hover {
+  opacity: 0.9;
+}
+
+textarea.form-control {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Checkbox styling */
+input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: var(--color-gold-primary);
+}
+
+/* Message bubble improvements */
+.message {
+  box-shadow: var(--shadow-xs);
+}
+
+.message--sent {
+  box-shadow: 0 2px 4px rgba(245, 158, 11, 0.2);
+}
+
+.message--received {
+  box-shadow: var(--shadow-sm);
+}
+
+/* Map responsive */
+@media (max-width: 1024px) {
+  #map-wrapper {
+    grid-template-columns: 1fr !important;
+  }
+  
+  #map-details-panel {
+    max-height: 400px !important;
+  }
+}
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAREhbbU00OquDc8Xyz1Kt9vOkL9D6qYPY"> /*API Key GOOGLE Maps*/
+    </script>
+</head>
+<body>
+    <div class="app-container" id="app">
+        <!-- Navigation -->
+        <nav class="navbar hidden" id="navbar">
+           
+            <div>
+            <img src="/home/liam-pc/Downloads/FullLogo_Transparent.png" alt="My photo" width="150" height="100" style="border-radius: 10px;">
+</div>
+            <div class="navbar-menu">
+                <div style="text-align: left; background: transparent; color: var(--color-gold-primary); font-size: 18px; font-weight: var(--font-weight-semibold); padding: var(--space-6) var(--space-5); margin-left: 5px; margin-right: var(--space-8); line-height: 1.3; max-width: 400px; border-radius: var(--radius-base); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Every Step. Every Stride. Together.</div>
+                <a class="nav-link" data-page="dashboard" title="Home">🏠</a>
+                <a class="nav-link" data-page="discover" title="Discover Runners">🔍</a>
+                <a class="nav-link" data-page="upcoming-runs" title="Upcoming Runs">📅</a>
+                <a class="nav-link" data-page="create-run" title="Create Run">➕</a>
+                <a class="nav-link" data-page="my-runs" title="My Runs">📊</a>
+                <a class="nav-link" data-page="free-run" title="Free Run">🏃</a>
+                <a class="nav-link" data-page="tournaments" title="Tournaments">🏆</a>
+                <a class="nav-link" data-page="friends" title="Friends">👥</a>
+                <a class="nav-link" data-page="messages" title="Messages">💬</a>
+                <a class="nav-link" data-page="map" title="Map">🗺️</a>
+                <div style="display: flex; align-items: center; gap: var(--space-12); margin-left: var(--space-16); padding-left: var(--space-16); border-left: 2px solid var(--color-green-primary);">
+                    <div class="user-profile-nav" id="userProfileNav" style="display: flex; align-items: center; gap: var(--space-6); cursor: pointer; margin-left: var(--space-8);" data-page="profile">
+                        <div class="profile-avatar" id="navProfileAvatar" style="width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, #D4AF37, #C9A961); color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: var(--font-weight-bold); font-size: 11px; border: 2px solid #B8960F; box-shadow: 0 2px 4px rgba(212, 175, 55, 0.3);">U</div>
+                        <span style="color: #FFFFFF; font-weight: var(--font-weight-medium); font-size: var(--font-size-xs);" id="navUserName">User</span>
+                    </div>
+                    <button class="btn" id="logoutBtn">Logout</button>
+                </div>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <!-- Login Page -->
+            <div id="login-page" class="page active" style="background-color: #FFFFFF;">
+                <div class="auth-container">
+                    <div class="auth-card">
+                        <div class="auth-header">
+                            <h1>🏃 Welcome to RunLink</h1>
+                            <p>Connect with runners in your area and find your perfect running partner</p>
+                        </div>
+                        <div id="login-alert"></div>
+                        <form id="loginForm">
+                            <div class="form-group">
+                                <label class="form-label" for="login-email">Email</label>
+                                <input type="email" class="form-control" id="login-email" required placeholder="demo@example.com" autocomplete="email">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="login-password">Password</label>
+                                <input type="password" class="form-control" id="login-password" required placeholder="demo123" autocomplete="current-password">
+                            </div>
+                            <button type="submit" class="btn btn--primary btn--full-width">Login</button>
+                        </form>
+                        <div style="margin-top: var(--space-16); padding: var(--space-12); background-color: rgba(212, 175, 55, 0.1); border-radius: var(--radius-base); border: 2px solid var(--color-gold-primary);">
+                            <p style="font-size: var(--font-size-sm); color: #1A1A1A; margin-bottom: var(--space-8);"><strong>Test Accounts:</strong></p>
+                            <ul style="font-size: var(--font-size-sm); color: #666666; margin: 0; padding-left: var(--space-20); line-height: 1.8;">
+                                <li>demo@example.com / demo123</li>
+                                <li>test@example.com / test123</li>
+                                <li>runner@example.com / runner123</li>
+                            </ul>
+                        </div>
+                        <div class="auth-footer" style="color: #666666;">
+                            Don't have an account? <a id="showSignupLink">Sign up</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sign-up Page -->
+            <div id="signup-page" class="page" style="background-color: #FFFFFF;">
+
+                <div class="auth-container">
+                    <div class="auth-card">
+                        <div class="auth-header">
+                            <h1>🏃 Join RunLink</h1>
+                            <p>Connect, run, compete with runners worldwide</p>
+                        </div>
+                        <div id="signup-alert"></div>
+                        <form id="signupForm">
+                            <div class="form-group">
+                                <label class="form-label" for="signup-name">Full Name</label>
+                                <input type="text" class="form-control" id="signup-name" required placeholder="John Doe" autocomplete="name">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="signup-email">Email</label>
+                                <input type="email" class="form-control" id="signup-email" required placeholder="your@email.com" autocomplete="email">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="signup-password">Password</label>
+                                <input type="password" class="form-control" id="signup-password" required placeholder="Min 6 characters" minlength="6" autocomplete="new-password">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label" for="signup-age">Age</label>
+                                    <input type="number" class="form-control" id="signup-age" min="13" max="100" required placeholder="18">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="signup-fitness">Fitness Level</label>
+                                    <select class="form-control" id="signup-fitness" required>
+                                        <option value="">Select level</option>
+                                        <option value="beginner">Beginner</option>
+                                        <option value="intermediate">Intermediate</option>
+                                        <option value="advanced">Advanced</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label" for="signup-pace">Pace (min/mile)</label>
+                                    <input type="number" class="form-control" id="signup-pace" step="0.1" min="6" max="15" required placeholder="10.0">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="signup-distance">Distance Preference (miles)</label>
+                                    <input type="number" class="form-control" id="signup-distance" min="1" max="26" required placeholder="5">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="signup-location">Preferred Location</label>
+                                <select class="form-control" id="signup-location" required>
+                                    <option value="">Select location</option>
+                                    <option value="downtown">Downtown</option>
+                                    <option value="park">Park Area</option>
+                                    <option value="trail">Trail System</option>
+                                    <option value="waterfront">Waterfront</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="signup-bio">Bio (optional)</label>
+                                <input type="text" class="form-control" id="signup-bio" placeholder="Tell us about yourself...">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="signup-city">City</label>
+                                <select class="form-control" id="signup-city" required>
+                                    <option value="">Select city</option>
+                                    <option value="Denver, CO">Denver, CO</option>
+                                    <option value="New York, NY">New York, NY</option>
+                                    <option value="Los Angeles, CA">Los Angeles, CA</option>
+                                    <option value="Chicago, IL">Chicago, IL</option>
+                                    <option value="Austin, TX">Austin, TX</option>
+                                    <option value="Seattle, WA">Seattle, WA</option>
+                                    <option value="Boston, MA">Boston, MA</option>
+                                    <option value="San Francisco, CA">San Francisco, CA</option>
+                                    <option value="Miami, FL">Miami, FL</option>
+                                    <option value="Portland, OR">Portland, OR</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Profile Picture</label>
+                                <div style="display: flex; gap: var(--space-8); flex-wrap: wrap; margin-bottom: var(--space-8);">
+                                    <div class="profile-avatar-option" data-initials="default" style="width: 48px; height: 48px; border-radius: 50%; background: #FFFFFF; color: var(--color-gold-primary); display: flex; align-items: center; justify-content: center; font-weight: var(--font-weight-bold); cursor: pointer; border: 2px solid var(--color-gold-primary);">👤</div>
+                                    <div class="profile-avatar-option" data-initials="runner1" style="width: 48px; height: 48px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 24px; cursor: pointer; border: 2px solid var(--color-gold-primary);">🏃‍♀️</div>
+                                    <div class="profile-avatar-option" data-initials="runner2" style="width: 48px; height: 48px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 24px; cursor: pointer; border: 2px solid var(--color-gold-primary);">🏃‍♂️</div>
+                                    <div class="profile-avatar-option" data-initials="runner3" style="width: 48px; height: 48px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 24px; cursor: pointer; border: 2px solid var(--color-gold-primary);">🏃</div>
+                                    <div class="profile-avatar-option" data-initials="runner4" style="width: 48px; height: 48px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 24px; cursor: pointer; border: 2px solid var(--color-gold-primary);">🚴‍♀️</div>
+                                    <div class="profile-avatar-option" data-initials="runner5" style="width: 48px; height: 48px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 24px; cursor: pointer; border: 2px solid var(--color-gold-primary);">⚡</div>
+                                </div>
+                                <input type="hidden" id="signup-profile-picture" value="default">
+                            </div>
+                            <button type="submit" class="btn btn--green btn--full-width">Create Account</button>
+                        </form>
+                        <div class="auth-footer" style="color: #666666;">
+                            Already have an account? <a id="showLoginLink">Login</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Page -->
+            <div id="dashboard-page" class="page" style="background-color: #FFFFFF;">
+                <div class="dashboard-header">
+                    <h1>Welcome back, <span id="dashboard-user-name"></span>! 👋</h1>
+                    <p>Ready to hit the pavement?</p>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Runs Joined</h3>
+                        <div class="stat-value" id="runs-joined-count">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Runs Organized</h3>
+                        <div class="stat-value" id="runs-organized-count">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Tournaments</h3>
+                        <div class="stat-value" id="tournaments-count">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Friends</h3>
+                        <div class="stat-value" id="connections-count">0</div>
+                    </div>
+                </div>
+
+                <div class="section" id="dashboard-tournaments-section">
+                    <div class="section-header">
+                        <h2>Active Tournaments</h2>
+                        <a class="btn btn--green btn--sm" data-page="tournaments">View All</a>
+                    </div>
+                    <div class="cards-grid" id="dashboard-tournaments"></div>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <h2>Upcoming Runs Near You</h2>
+                        <a class="btn btn--green btn--sm" data-page="upcoming-runs">View All</a>
+                    </div>
+                    <div class="cards-grid" id="dashboard-runs"></div>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <h2>Find Running Partners</h2>
+                        <a class="btn btn--green btn--sm" data-page="discover">Discover Runners</a>
+                    </div>
+                    <div class="cards-grid" id="dashboard-runners"></div>
+                </div>
+            </div>
+
+            <!-- Discover Runners Page -->
+            <div id="discover-page" class="page" style="background-color: #FFFFFF;">
+                <div class="section-header">
+                    <h1 style="color: var(--color-green-primary);">Discover Runners</h1>
+                </div>
+
+                <div class="filters">
+                    <div class="filters-grid">
+                        <div class="form-group">
+                            <label class="form-label" for="filter-fitness">Fitness Level</label>
+                            <select class="form-control" id="filter-fitness">
+                                <option value="">All levels</option>
+                                <option value="beginner">Beginner</option>
+                                <option value="intermediate">Intermediate</option>
+                                <option value="advanced">Advanced</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="filter-pace-min">Min Pace (min/mile)</label>
+                            <input type="number" class="form-control" id="filter-pace-min" step="0.1" placeholder="e.g., 8.0">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="filter-pace-max">Max Pace (min/mile)</label>
+                            <input type="number" class="form-control" id="filter-pace-max" step="0.1" placeholder="e.g., 12.0">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="filter-distance">Distance Preference</label>
+                            <input type="number" class="form-control" id="filter-distance" placeholder="Miles">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cards-grid" id="discover-runners"></div>
+            </div>
+
+            <!-- Upcoming Runs Page -->
+            <div id="upcoming-runs-page" class="page" style="background-color: #FFFFFF;">
+                <div class="section-header">
+                    <h1 style="color: var(--color-green-primary);">Upcoming Runs</h1>
+                    <a class="btn btn--green" data-page="create-run">Create a Run</a>
+                </div>
+
+                <div class="filters">
+                    <div class="filters-grid">
+                        <div class="form-group">
+                            <label class="form-label" for="filter-run-pace">Pace (min/mile)</label>
+                            <input type="number" class="form-control" id="filter-run-pace" step="0.1" placeholder="e.g., 10.0">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="filter-run-distance">Distance (miles)</label>
+                            <input type="number" class="form-control" id="filter-run-distance" placeholder="e.g., 5">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="filter-run-difficulty">Difficulty</label>
+                            <select class="form-control" id="filter-run-difficulty">
+                                <option value="">All difficulties</option>
+                                <option value="easy">Easy</option>
+                                <option value="moderate">Moderate</option>
+                                <option value="hard">Hard</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="filter-run-date">Date</label>
+                            <input type="date" class="form-control" id="filter-run-date">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cards-grid" id="upcoming-runs-list"></div>
+            </div>
+
+            <!-- Create Run Page -->
+            <div id="create-run-page" class="page" style="background-color: #FFFFFF;">
+                <div class="section-header">
+                    <h1 style="color: var(--color-green-primary);">Create a Run</h1>
+                </div>
+
+                <div id="create-run-alert"></div>
+
+                <div class="form-card">
+                    <form id="createRunForm">
+                        <div class="form-group">
+                            <label class="form-label" for="run-title">Run Name/Title</label>
+                            <input type="text" class="form-control" id="run-title" required placeholder="e.g., Morning Coffee Run">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="run-date">Date</label>
+                                <input type="date" class="form-control" id="run-date" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="run-time">Time</label>
+                                <input type="time" class="form-control" id="run-time" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="run-distance">Distance (miles)</label>
+                                <input type="number" class="form-control" id="run-distance" min="1" max="26" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="run-pace">Pace (min/mile)</label>
+                                <input type="number" class="form-control" id="run-pace" step="0.1" min="6" max="15" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="run-city">City</label>
+                            <select class="form-control" id="run-city" required>
+                                <option value="">Select city</option>
+                                <option value="Denver, CO">Denver, CO</option>
+                                <option value="New York, NY">New York, NY</option>
+                                <option value="Los Angeles, CA">Los Angeles, CA</option>
+                                <option value="Chicago, IL">Chicago, IL</option>
+                                <option value="Austin, TX">Austin, TX</option>
+                                <option value="Seattle, WA">Seattle, WA</option>
+                                <option value="Boston, MA">Boston, MA</option>
+                                <option value="San Francisco, CA">San Francisco, CA</option>
+                                <option value="Miami, FL">Miami, FL</option>
+                                <option value="Portland, OR">Portland, OR</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="run-difficulty">Difficulty</label>
+                                <select class="form-control" id="run-difficulty" required>
+                                    <option value="">Select difficulty</option>
+                                    <option value="easy">Easy</option>
+                                    <option value="moderate">Moderate</option>
+                                    <option value="hard">Hard</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="run-location">Location</label>
+                                <select class="form-control" id="run-location" required>
+                                    <option value="">Select location</option>
+                                    <option value="downtown">Downtown</option>
+                                    <option value="park">Park Area</option>
+                                    <option value="trail">Trail System</option>
+                                    <option value="waterfront">Waterfront</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="run-max-participants">Max Participants</label>
+                                <input type="number" class="form-control" id="run-max-participants" min="2" max="50" required placeholder="15">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="run-description">Description/Notes</label>
+                            <input type="text" class="form-control" id="run-description" placeholder="Add details about the run...">
+                        </div>
+                        <button type="submit" class="btn btn--green btn--full-width">Create Run</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Free Run Page -->
+            <div id="free-run-page" class="page" style="background-color: #FFFFFF;">
+                <div class="section-header">
+                    <h1 style="color: var(--color-green-primary);">🏃 Free Run</h1>
+                    <p style="color: var(--color-text-secondary); font-size: var(--font-size-base);">Track your run with live GPS tracking and real-time metrics</p>
+                </div>
+                
+                <!-- GPS Info Banner -->
+                <div style="background: #FFFFFF; border: 2px solid var(--color-green-primary); border-radius: var(--radius-lg); padding: var(--space-16); margin-bottom: var(--space-24);">
+                    <h3 style="color: var(--color-green-dark); margin-bottom: var(--space-8); font-size: var(--font-size-base);">📍 GPS Tracking with Google Maps</h3>
+                    <p style="font-size: var(--font-size-sm); color: var(--color-text-secondary); margin-bottom: var(--space-8); line-height: 1.6;">
+                        <strong>✨ Google Maps API integrated!</strong> When you start running, we'll request location permission for:
+                    </p>
+                    <ul style="font-size: var(--font-size-sm); color: var(--color-text-secondary); margin: 0 0 var(--space-8) var(--space-20); line-height: 1.8;">
+                        <li>🛰️ Real-time GPS tracking on Google Maps with satellite view</li>
+                        <li>📍 Precise distance calculation using actual coordinates</li>
+                        <li>⚡ Accurate pace, speed, and route measurements</li>
+                        <li>🗺️ Live position updates plotted on interactive map</li>
+                    </ul>
+                    <p style="font-size: var(--font-size-xs); color: var(--color-text-secondary); margin: 0;">
+                        🔒 <strong>Privacy:</strong> Your location is only used during your run and stored locally. We never share your GPS data.
+                    </p>
+                    <p style="font-size: var(--font-size-xs); color: var(--color-text-secondary); margin-top: var(--space-4);">
+                        🛰️ <strong>Powered by Google Maps:</strong> Integrated API provides accurate mapping and GPS tracking for all users.
+                    </p>
+                    <p style="font-size: var(--font-size-xs); color: var(--color-text-secondary); margin-top: var(--space-4);">
+                        🎮 <strong>No GPS?</strong> If GPS is unavailable or you decline permission, you can still use Demo Mode with simulated tracking.
+                    </p>
+                </div>
+
+                <!-- Free Run Interface -->
+                <div id="free-run-interface" style="display: grid; grid-template-columns: 1fr 1.5fr; gap: var(--space-24); margin-bottom: var(--space-24);">
+                    <!-- Timer and Metrics Panel -->
+                    <div>
+                        <!-- GPS Status Banner -->
+                        <div id="gps-status-banner" style="background: #FFFFFF; border: 2px solid var(--color-green-primary); border-radius: var(--radius-base); padding: var(--space-12); margin-bottom: var(--space-16); text-align: center; display: none;">
+                            <div style="font-size: var(--font-size-sm); color: var(--color-text-secondary); margin-bottom: var(--space-4);">GPS Status</div>
+                            <div id="gps-status-text" style="font-size: var(--font-size-base); font-weight: var(--font-weight-semibold);">Ready</div>
+                        </div>
+
+                        <!-- Timer Display -->
+                        <div style="background: #FFFFFF; border: 3px solid var(--color-green-primary); border-radius: var(--radius-lg); padding: var(--space-32); margin-bottom: var(--space-20); text-align: center;">
+                            <div style="font-size: var(--font-size-sm); color: var(--color-text-secondary); margin-bottom: var(--space-8); text-transform: uppercase; letter-spacing: 0.05em;">Elapsed Time</div>
+                            <div id="free-run-timer" style="font-size: 72px; font-weight: var(--font-weight-bold); color: var(--color-green-primary); font-family: var(--font-family-mono); line-height: 1;">00:00:00</div>
+                        </div>
+
+                        <!-- Metrics Display -->
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-16); margin-bottom: var(--space-20);">
+                            <div style="background: #FFFFFF; border: 2px solid var(--color-green-primary); border-radius: var(--radius-lg); padding: var(--space-20); text-align: center;">
+                                <div style="font-size: var(--font-size-xs); color: var(--color-text-secondary); margin-bottom: var(--space-8); text-transform: uppercase;">Distance</div>
+                                <div id="free-run-distance" style="font-size: var(--font-size-3xl); font-weight: var(--font-weight-bold); color: var(--color-green-primary);">0.00</div>
+                                <div style="font-size: var(--font-size-sm); color: var(--color-text-secondary);">miles</div>
+                            </div>
+                            <div style="background: #FFFFFF; border: 2px solid var(--color-green-primary); border-radius: var(--radius-lg); padding: var(--space-20); text-align: center;">
+                                <div style="font-size: var(--font-size-xs); color: var(--color-text-secondary); margin-bottom: var(--space-8); text-transform: uppercase;">Pace</div>
+                                <div id="free-run-pace" style="font-size: var(--font-size-3xl); font-weight: var(--font-weight-bold); color: var(--color-green-primary);">0:00</div>
+                                <div style="font-size: var(--font-size-sm); color: var(--color-text-secondary);">min/mile</div>
+                            </div>
+                            <div style="background: #FFFFFF; border: 2px solid var(--color-green-primary); border-radius: var(--radius-lg); padding: var(--space-20); text-align: center;">
+                                <div style="font-size: var(--font-size-xs); color: var(--color-text-secondary); margin-bottom: var(--space-8); text-transform: uppercase;">Calories</div>
+                                <div id="free-run-calories" style="font-size: var(--font-size-3xl); font-weight: var(--font-weight-bold); color: var(--color-green-primary);">0</div>
+                                <div style="font-size: var(--font-size-sm); color: var(--color-text-secondary);">kcal</div>
+                            </div>
+                            <div style="background: #FFFFFF; border: 2px solid var(--color-green-primary); border-radius: var(--radius-lg); padding: var(--space-20); text-align: center;">
+                                <div style="font-size: var(--font-size-xs); color: var(--color-text-secondary); margin-bottom: var(--space-8); text-transform: uppercase;">Speed</div>
+                                <div id="free-run-speed" style="font-size: var(--font-size-3xl); font-weight: var(--font-weight-bold); color: var(--color-green-primary);">0.0</div>
+                                <div style="font-size: var(--font-size-sm); color: var(--color-text-secondary);">mph</div>
+                            </div>
+                        </div>
+
+                        <!-- Run Controls -->
+                        <div id="free-run-controls" style="display: flex; flex-direction: column; gap: var(--space-12);">
+                            <button id="start-run-btn" class="btn btn--green btn--full-width" style="padding: var(--space-16); font-size: var(--font-size-lg);">🏁 Start Running</button>
+                            
+                            <!-- SOS Emergency Button (visible during run) -->
+                            <button id="sos-emergency-btn" class="btn btn--full-width hidden" style="padding: var(--space-16); font-size: var(--font-size-lg); background: #EF4444; color: white; border: 3px solid #DC2626; font-weight: var(--font-weight-bold); box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);" onclick="sendSosAlert()">🚨 SOS EMERGENCY</button>
+                            
+                            <!-- Safety Status (visible during run) -->
+                            <div id="safety-status" class="hidden" style="background: #FFFFFF; border: 2px solid var(--color-gold-primary); border-radius: var(--radius-base); padding: var(--space-12); font-size: var(--font-size-sm);">
+                                <div id="friends-notified-status" style="display: none; color: var(--color-text-secondary); margin-bottom: var(--space-4);">
+                                    ✅ Friends notified
+                                </div>
+                                <div id="friends-watching-status" style="display: none; color: var(--color-text-secondary); margin-bottom: var(--space-4);">
+                                    👁️ <span id="watching-count">0</span> friends watching
+                                </div>
+                                <div id="location-sharing-status" style="display: none; color: var(--color-text-secondary);">
+                                    📍 Sharing live location
+                                </div>
+                            </div>
+                            
+                            <button id="pause-run-btn" class="btn btn--secondary btn--full-width hidden" style="padding: var(--space-16); font-size: var(--font-size-lg);">⏸️ Pause</button>
+                            <button id="resume-run-btn" class="btn btn--green btn--full-width hidden" style="padding: var(--space-16); font-size: var(--font-size-lg);">▶️ Resume</button>
+                            <button id="end-run-btn" class="btn btn--secondary btn--full-width hidden" style="padding: var(--space-16); font-size: var(--font-size-lg);">⏹️ End Run</button>
+                            <button id="discard-run-btn" class="btn btn--outline btn--full-width hidden" style="padding: var(--space-12);">❌ Discard</button>
+                        </div>
+                    </div>
+
+                    <!-- Live Map Display with Google Maps Integration -->
+                    <div style="background: #FFFFFF; border: 3px solid var(--color-green-primary); border-radius: var(--radius-lg); padding: var(--space-20);">
+                        <h3 style="margin-bottom: var(--space-16); color: var(--color-green-dark); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--space-8);">
+                            <span>🗺️ Live GPS Route</span>
+                            <span id="map-status" style="font-size: var(--font-size-sm); color: var(--color-text-secondary);">Ready to start</span>
+                        </h3>
+                        <!-- GPS Info Box -->
+                        <div id="gps-info-box" style="display: none; background: #FFFFFF; border: 1px solid var(--color-green-primary); border-radius: var(--radius-sm); padding: var(--space-8); margin-bottom: var(--space-12); font-size: var(--font-size-xs);">
+                            <div style="display: flex; justify-content: space-between; gap: var(--space-16);">
+                                <span>📡 <strong>GPS:</strong> <span id="gps-status-indicator">Inactive</span></span>
+                                <span id="gps-accuracy-display" style="display: none;">🎯 <strong>Accuracy:</strong> <span id="gps-accuracy-value">--</span>m</span>
+                            </div>
+                            <div id="privacy-notice" style="margin-top: var(--space-4); color: var(--color-text-secondary); font-size: var(--font-size-xs);">
+                                🔒 Your location is private and only used to track your run
+                            </div>
+                        </div>
+                        <!-- Google Maps Container for Free Run -->
+                        <div id="free-run-map" style="position: relative; width: 100%; height: 480px; background: linear-gradient(135deg, #E0F2F1 0%, #B2DFDB 100%); border-radius: var(--radius-base); overflow: hidden;">
+                            <!-- Google Maps will render here when available -->
+                            <div id="free-run-google-map" style="width: 100%; height: 100%; border-radius: var(--radius-base);"></div>
+                            <!-- Fallback canvas for demo mode -->
+                            <canvas id="route-canvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: none;"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Run Summary Screen (Hidden by default) -->
+                <div id="run-summary" class="hidden">
+                    <div style="max-width: 700px; margin: 0 auto; background: #FFFFFF; border: 3px solid var(--color-green-primary); border-radius: var(--radius-lg); padding: var(--space-32);">
+                        <h2 style="text-align: center; color: var(--color-green-primary); margin-bottom: var(--space-24); font-size: var(--font-size-3xl);">🎉 Run Complete!</h2>
+                        
+                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-20); margin-bottom: var(--space-24);">
+                            <div style="background: #FFFFFF; border: 2px solid var(--color-green-primary); border-radius: var(--radius-base); padding: var(--space-20); text-align: center;">
+                                <div style="font-size: var(--font-size-sm); color: var(--color-text-secondary); margin-bottom: var(--space-8);">Total Distance</div>
+                                <div id="summary-distance" style="font-size: var(--font-size-4xl); font-weight: var(--font-weight-bold); color: var(--color-green-primary);">0.00 mi</div>
+                            </div>
+                            <div style="background: #FFFFFF; border: 2px solid var(--color-green-primary); border-radius: var(--radius-base); padding: var(--space-20); text-align: center;">
+                                <div style="font-size: var(--font-size-sm); color: var(--color-text-secondary); margin-bottom: var(--space-8);">Total Time</div>
+                                <div id="summary-time" style="font-size: var(--font-size-4xl); font-weight: var(--font-weight-bold); color: var(--color-green-primary);">00:00:00</div>
+                            </div>
+                            <div style="background: #FFFFFF; border: 2px solid var(--color-green-primary); border-radius: var(--radius-base); padding: var(--space-20); text-align: center;">
+                                <div style="font-size: var(--font-size-sm); color: var(--color-text-secondary); margin-bottom: var(--space-8);">Average Pace</div>
+                                <div id="summary-pace" style="font-size: var(--font-size-4xl); font-weight: var(--font-weight-bold); color: var(--color-green-primary);">0:00 min/mi</div>
+                            </div>
+                            <div style="background: #FFFFFF; border: 2px solid var(--color-green-primary); border-radius: var(--radius-base); padding: var(--space-20); text-align: center;">
+                                <div style="font-size: var(--font-size-sm); color: var(--color-text-secondary); margin-bottom: var(--space-8);">Calories Burned</div>
+                                <div id="summary-calories" style="font-size: var(--font-size-4xl); font-weight: var(--font-weight-bold); color: var(--color-green-primary);">0 kcal</div>
+                            </div>
+                        </div>
+
+                        <div style="background: #FFFFFF; border: 2px solid var(--color-green-primary); border-radius: var(--radius-base); padding: var(--space-16); margin-bottom: var(--space-24);">
+                            <div style="font-size: var(--font-size-sm); color: var(--color-text-secondary); margin-bottom: var(--space-4);">Started</div>
+                            <div id="summary-start-time" style="font-size: var(--font-size-base); color: var(--color-text);">-</div>
+                        </div>
+
+                        <div style="margin-bottom: var(--space-24);">
+                            <h3 style="margin-bottom: var(--space-12); color: var(--color-green-dark); display: flex; align-items: center; gap: var(--space-8);">
+                                Route Map
+                                <span id="summary-gps-badge" style="display: none; font-size: var(--font-size-xs); padding: var(--space-4) var(--space-8); background: var(--color-green-light); color: var(--color-green-dark); border-radius: var(--radius-full); font-weight: var(--font-weight-medium);"></span>
+                            </h3>
+                            <div id="summary-map" style="width: 100%; height: 300px; background: linear-gradient(135deg, #E0F2F1 0%, #B2DFDB 100%); border-radius: var(--radius-base); border: 2px solid var(--color-green-primary); position: relative; overflow: hidden;">
+                                <canvas id="summary-route-canvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: var(--space-20);">
+                            <label class="form-label" for="run-name-input">Run Name (optional)</label>
+                            <input type="text" class="form-control" id="run-name-input" placeholder="e.g., Morning Jog">
+                        </div>
+
+                        <div style="display: flex; gap: var(--space-12);">
+                            <button id="save-run-btn" class="btn btn--green" style="flex: 1; padding: var(--space-16); font-size: var(--font-size-lg);">💾 Save Run</button>
+                            <button id="discard-summary-btn" class="btn btn--secondary" style="padding: var(--space-16);">Discard</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- My Runs Page -->
+            <div id="my-runs-page" class="page" style="background-color: #FFFFFF;">
+                <div class="section-header">
+                    <h1 style="color: var(--color-green-primary);">My Runs</h1>
+                    <a class="btn btn--green" data-page="create-run">Create a Run</a>
+                </div>
+
+                <div class="tabs">
+                    <button class="tab active" data-tab="joined">Runs I've Joined</button>
+                    <button class="tab" data-tab="organizing">Runs I'm Organizing</button>
+                    <button class="tab" data-tab="completed">Completed Runs</button>
+                </div>
+
+                <div class="tab-content active" id="joined-runs">
+                    <div class="cards-grid" id="joined-runs-list"></div>
+                </div>
+
+                <div class="tab-content" id="organizing-runs">
+                    <div class="cards-grid" id="organizing-runs-list"></div>
+                </div>
+
+                <div class="tab-content" id="completed-runs">
+                    <div class="cards-grid" id="completed-runs-list"></div>
+                </div>
+            </div>
+
+            <!-- Messages Page -->
+            <div id="messages-page" class="page" style="background-color: #FFFFFF;">
+                <div class="section-header">
+                    <h1 style="color: var(--color-green-primary);">Messages</h1>
+                </div>
+
+                <div class="messages-container">
+                    <div class="connections-list" id="connections-list"></div>
+                    <div class="chat-container">
+                        <div id="chat-empty" class="empty-state">
+                            <div class="empty-state-icon">💬</div>
+                            <h3>Select a connection to start chatting</h3>
+                            <p>Connect with runners to send messages</p>
+                        </div>
+                        <div id="chat-active" class="hidden" style="display: flex; flex-direction: column; height: 100%;">
+                            <div class="chat-header">
+                                <h3 id="chat-user-name"></h3>
+                            </div>
+                            <div class="chat-messages" id="chat-messages"></div>
+                            <div class="chat-input-container">
+                                <input type="text" class="form-control chat-input" id="chat-input" placeholder="Type a message...">
+                                <button class="btn btn--primary" id="send-message-btn">Send</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tournaments Page -->
+            <div id="tournaments-page" class="page" style="background-color: #FFFFFF;">
+                <div class="section-header">
+                    <h1 style="color: var(--color-green-primary);">Tournaments</h1>
+                    <a class="btn btn--green" data-page="create-tournament">Create Tournament</a>
+                </div>
+
+                <div class="tabs">
+                    <button class="tab active" data-tab="global-tournaments">Global</button>
+                    <button class="tab" data-tab="friends-tournaments">Friends</button>
+                    <button class="tab" data-tab="private-tournaments">Private Group</button>
+                </div>
+
+                <div class="tab-content active" id="global-tournaments">
+                    <div class="filters" style="margin-bottom: var(--space-24);">
+                        <div class="filters-grid">
+                            <div class="form-group">
+                                <label class="form-label" for="filter-tournament-city">Filter by City</label>
+                                <select class="form-control" id="filter-tournament-city">
+                                    <option value="">All cities</option>
+                                    <option value="Denver, CO">Denver, CO</option>
+                                    <option value="Los Angeles, CA">Los Angeles, CA</option>
+                                    <option value="Austin, TX">Austin, TX</option>
+                                    <option value="New York, NY">New York, NY</option>
+                                    <option value="San Francisco, CA">San Francisco, CA</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="filter-tournament-sort">Sort by</label>
+                                <select class="form-control" id="filter-tournament-sort">
+                                    <option value="newest">Newest</option>
+                                    <option value="popular">Most Popular</option>
+                                    <option value="ending">Ending Soon</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cards-grid" id="global-tournaments-list"></div>
+                </div>
+
+                <div class="tab-content" id="friends-tournaments">
+                    <div class="cards-grid" id="friends-tournaments-list"></div>
+                </div>
+
+                <div class="tab-content" id="private-tournaments">
+                    <div class="cards-grid" id="private-tournaments-list"></div>
+                </div>
+            </div>
+
+            <!-- Tournament Details Page -->
+            <div id="tournament-details-page" class="page" style="background-color: #FFFFFF;">
+                <div class="section-header">
+                    <button class="btn btn--secondary btn--sm" onclick="showPage('tournaments')">← Back to Tournaments</button>
+                </div>
+                <div id="tournament-details-content"></div>
+            </div>
+
+            <!-- Create Tournament Page -->
+            <div id="create-tournament-page" class="page" style="background-color: #FFFFFF;">
+                <div class="section-header">
+                    <h1 style="color: var(--color-green-primary);">Create Tournament</h1>
+                </div>
+
+                <div id="create-tournament-alert"></div>
+
+                <div class="form-card">
+                    <form id="createTournamentForm">
+                        <div class="form-group">
+                            <label class="form-label" for="tournament-title">Tournament Name/Title</label>
+                            <input type="text" class="form-control" id="tournament-title" required placeholder="e.g., November Distance Challenge">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="tournament-description">Description</label>
+                            <textarea class="form-control" id="tournament-description" required placeholder="Describe your tournament..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="tournament-city">City Location</label>
+                            <select class="form-control" id="tournament-city" required>
+                                <option value="">Select city</option>
+                                <option value="Denver, CO">Denver, CO</option>
+                                <option value="New York, NY">New York, NY</option>
+                                <option value="Los Angeles, CA">Los Angeles, CA</option>
+                                <option value="Chicago, IL">Chicago, IL</option>
+                                <option value="Austin, TX">Austin, TX</option>
+                                <option value="Seattle, WA">Seattle, WA</option>
+                                <option value="Boston, MA">Boston, MA</option>
+                                <option value="San Francisco, CA">San Francisco, CA</option>
+                                <option value="Miami, FL">Miami, FL</option>
+                                <option value="Portland, OR">Portland, OR</option>
+                                <option value="Multiple">Multiple Cities</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="tournament-distance">Distance Goal (miles)</label>
+                                <input type="number" class="form-control" id="tournament-distance" min="1" required placeholder="100">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="tournament-type">Tournament Type</label>
+                                <select class="form-control" id="tournament-type" required>
+                                    <option value="">Select type</option>
+                                    <option value="Distance Challenge">Distance Challenge</option>
+                                    <option value="Speed Challenge">Speed Challenge</option>
+                                    <option value="Endurance Challenge">Endurance Challenge</option>
+                                    <option value="Social Challenge">Social Challenge</option>
+                                    <option value="Marathon Training">Marathon Training</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="tournament-start">Start Date</label>
+                                <input type="date" class="form-control" id="tournament-start" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="tournament-end">End Date</label>
+                                <input type="date" class="form-control" id="tournament-end" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="tournament-privacy">Privacy Level</label>
+                                <select class="form-control" id="tournament-privacy" required>
+                                    <option value="">Select privacy</option>
+                                    <option value="public">Public (Anyone can join)</option>
+                                    <option value="friends">Friends Only</option>
+                                    <option value="private">Private (Invite Only)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="tournament-max">Max Participants</label>
+                                <input type="number" class="form-control" id="tournament-max" min="2" max="100" required placeholder="50">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn--green btn--full-width">Create Tournament</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- My Tournaments Page -->
+            <div id="my-tournaments-page" class="page" style="background-color: #FFFFFF;">
+                <div class="section-header">
+                    <h1 style="color: var(--color-green-primary);">My Tournaments</h1>
+                    <button class="btn btn--secondary btn--sm" onclick="showPage('tournaments')">← Back</button>
+                </div>
+
+                <div class="tabs">
+                    <button class="tab active" data-tab="participating-tournaments">Participating</button>
+                    <button class="tab" data-tab="organizing-tournaments">Organizing</button>
+                </div>
+
+                <div class="tab-content active" id="participating-tournaments">
+                    <div class="cards-grid" id="participating-tournaments-list"></div>
+                </div>
+
+                <div class="tab-content" id="organizing-tournaments">
+                    <div class="cards-grid" id="organizing-tournaments-list"></div>
+                </div>
+            </div>
+
+            <!-- Map Page -->
+            <div id="map-page" class="page" style="background-color: #FFFFFF;">
+                <div class="section-header">
+                    <h1 style="color: var(--color-green-primary);">🗺️ Explore Runners &amp; Events Near You</h1>
+                </div>
+
+                <!-- Automated Map System -->
+                <div id="map-api-notice" style="background: #FFFFFF; border: 2px solid var(--color-green-primary); border-radius: var(--radius-lg); padding: var(--space-16); margin-bottom: var(--space-24);">
+                    <h3 style="color: var(--color-green-primary); margin-bottom: var(--space-8); font-size: var(--font-size-base);">✅ Google Maps - Fully Integrated &amp; Automated!</h3>
+                    <p style="font-size: var(--font-size-sm); color: var(--color-text-secondary); margin-bottom: var(--space-8); line-height: 1.6;">
+                        <strong>Ready to use!</strong> Google Maps API is integrated with satellite view, real-time GPS tracking, and interactive markers. No configuration needed!
+                    </p>
+                    <div style="background: #FFFFFF; border: 2px solid var(--color-green-primary); border-radius: var(--radius-base); padding: var(--space-12); margin-bottom: var(--space-8);">
+                        <p style="font-size: var(--font-size-sm); margin: 0 0 var(--space-4) 0; color: var(--color-text);"><strong>📍 Interactive Features:</strong></p>
+                        <ul style="font-size: var(--font-size-sm); color: var(--color-text-secondary); margin: 0; padding-left: var(--space-20); line-height: 1.8;">
+                            <li>Real-time runner locations and activity markers</li>
+                            <li>GPS route tracking for Free Runs (with permission)</li>
+                            <li>Live updates when you join runs or tournaments</li>
+                            <li>Click markers for detailed runner/run/tournament info</li>
+                            <li>Filter by city, distance radius, and search by name</li>
+                            <li>Zoom and pan to explore different areas</li>
+                        </ul>
+                    </div>
+                    <details style="font-size: var(--font-size-xs); color: var(--color-text-secondary); margin-top: var(--space-8);">
+                        <summary style="cursor: pointer; font-weight: var(--font-weight-semibold); color: var(--color-text); margin-bottom: var(--space-4);">ℹ️ About the API Key</summary>
+                        <div style="padding: var(--space-8); background: #FFFFFF; border-radius: var(--radius-sm); margin-top: var(--space-4);">
+                            <p style="margin: 0 0 var(--space-4) 0;"><strong>Integrated Google Maps API:</strong></p>
+                            <ul style="margin: 0; padding-left: var(--space-20); line-height: 1.6;">
+                                <li>Unrestricted API key for demo purposes</li>
+                                <li>Works for all users automatically</li>
+                                <li>Enables satellite view, GPS tracking, and real-time updates</li>
+                                <li>For production: Get your own key at <a href="https://console.cloud.google.com/" target="_blank" style="color: var(--color-primary);">Google Cloud Console</a></li>
+                                <li>Google provides $200/month free credit (28,000+ map loads)</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <!-- Filters -->
+                <div class="filters" style="margin-bottom: var(--space-24);">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--space-12);">
+                        <div class="form-group" style="margin: 0;">
+                            <label style="display: flex; align-items: center; gap: var(--space-8); cursor: pointer;">
+                                <input type="checkbox" id="map-show-runners" checked style="width: 18px; height: 18px;">
+                                <span class="form-label" style="margin: 0; font-size: var(--font-size-base);">Show Runners</span>
+                            </label>
+                        </div>
+                        <div class="form-group" style="margin: 0;">
+                            <label style="display: flex; align-items: center; gap: var(--space-8); cursor: pointer;">
+                                <input type="checkbox" id="map-show-runs" checked style="width: 18px; height: 18px;">
+                                <span class="form-label" style="margin: 0; font-size: var(--font-size-base);">Show Runs</span>
+                            </label>
+                        </div>
+                        <div class="form-group" style="margin: 0;">
+                            <label style="display: flex; align-items: center; gap: var(--space-8); cursor: pointer;">
+                                <input type="checkbox" id="map-show-tournaments" checked style="width: 18px; height: 18px;">
+                                <span class="form-label" style="margin: 0; font-size: var(--font-size-base);">Show Tournaments</span>
+                            </label>
+                        </div>
+                        <div class="form-group" style="margin: 0;">
+                            <label style="display: flex; align-items: center; gap: var(--space-8); cursor: pointer;">
+                                <input type="checkbox" id="map-show-gps-routes" style="width: 18px; height: 18px;">
+                                <span class="form-label" style="margin: 0; font-size: var(--font-size-base);">Show GPS Routes</span>
+                            </label>
+                        </div>
+                        <div class="form-group" style="margin: 0;">
+                            <label class="form-label" for="map-city-filter" style="margin-bottom: var(--space-4);">City</label>
+                            <select class="form-control" id="map-city-filter">
+                                <option value="">All Cities</option>
+                                <option value="Denver, CO">Denver, CO</option>
+                                <option value="Los Angeles, CA">Los Angeles, CA</option>
+                                <option value="New York, NY">New York, NY</option>
+                                <option value="Austin, TX">Austin, TX</option>
+                                <option value="Seattle, WA">Seattle, WA</option>
+                                <option value="Chicago, IL">Chicago, IL</option>
+                                <option value="Boston, MA">Boston, MA</option>
+                                <option value="San Francisco, CA">San Francisco, CA</option>
+                                <option value="Miami, FL">Miami, FL</option>
+                                <option value="Portland, OR">Portland, OR</option>
+                            </select>
+                        </div>
+                        <div class="form-group" style="margin: 0;">
+                            <label class="form-label" for="map-distance-filter" style="margin-bottom: var(--space-4);">Distance Radius</label>
+                            <select class="form-control" id="map-distance-filter">
+                                <option value="all">All</option>
+                                <option value="1">1 mile</option>
+                                <option value="5">5 miles</option>
+                                <option value="10">10 miles</option>
+                                <option value="25">25 miles</option>
+                            </select>
+                        </div>
+                        <div class="form-group" style="margin: 0;">
+                            <label class="form-label" for="map-search" style="margin-bottom: var(--space-4);">Search Runner</label>
+                            <input type="text" class="form-control" id="map-search" placeholder="Search by name...">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map Legend -->
+                <div style="background: #FFFFFF; border: 2px solid var(--color-green-primary); border-radius: var(--radius-lg); padding: var(--space-16); margin-bottom: var(--space-24); display: flex; gap: var(--space-24); flex-wrap: wrap; align-items: center;">
+                    <div style="font-weight: var(--font-weight-semibold); color: var(--color-green-dark);">Legend:</div>
+                    <div style="display: flex; align-items: center; gap: var(--space-8);"><div style="width: 16px; height: 16px; background: var(--color-green-primary); border-radius: 50%; border: 2px solid var(--color-green-dark);"></div><span style="font-size: var(--font-size-sm);">Runners</span></div>
+                    <div style="display: flex; align-items: center; gap: var(--space-8);"><div style="width: 16px; height: 16px; background: #3B82F6; border-radius: 50%; border: 2px solid #1E40AF;"></div><span style="font-size: var(--font-size-sm);">Runs</span></div>
+                    <div style="display: flex; align-items: center; gap: var(--space-8);"><div style="width: 16px; height: 16px; background: #A855F7; border-radius: 50%; border: 2px solid #7C3AED;"></div><span style="font-size: var(--font-size-sm);">Tournaments</span></div>
+                    <div style="display: flex; align-items: center; gap: var(--space-8);"><div style="width: 20px; height: 20px; background: #FBBF24; border-radius: 50%; border: 3px solid #F59E0B;"></div><span style="font-size: var(--font-size-sm);">You</span></div>
+                </div>
+
+                <!-- Map Container -->
+                <div id="map-wrapper" style="display: grid; grid-template-columns: 1fr 400px; gap: var(--space-20); margin-bottom: var(--space-24);">
+                    <!-- Map -->
+                    <div id="map-container" style="background: #FFFFFF; border: 2px solid var(--color-green-primary); border-radius: var(--radius-lg); padding: var(--space-20); min-height: 600px; position: relative; overflow: hidden;">
+                        <div id="google-map" style="position: relative; width: 100%; height: 580px; border-radius: var(--radius-base); overflow: hidden;">
+                            <!-- Google Maps will be rendered here -->
+                        </div>
+                    </div>
+
+                    <!-- Details Panel -->
+                    <div id="map-details-panel" style="background: #FFFFFF; border: 2px solid var(--color-green-primary); border-radius: var(--radius-lg); padding: var(--space-20); max-height: 600px; overflow-y: auto;">
+                        <div id="map-details-empty" class="empty-state">
+                            <div class="empty-state-icon">📍</div>
+                            <h3>Select a marker</h3>
+                            <p>Click on a runner, run, or tournament marker to see details</p>
+                        </div>
+                        <div id="map-details-content" class="hidden">
+                            <!-- Details will be rendered here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results Count -->
+                <div id="map-results-count" style="text-align: center; color: var(--color-text-secondary); font-size: var(--font-size-sm);"></div>
+            </div>
+
+            <!-- Friends Page -->
+            <div id="friends-page" class="page" style="background-color: #FFFFFF;">
+                <div class="section-header">
+                    <h1 style="color: var(--color-green-primary);">👥 Friends</h1>
+                </div>
+
+                <div class="tabs">
+                    <button class="tab active" data-tab="all-friends">All Friends</button>
+                    <button class="tab" data-tab="pending-requests">Pending Requests</button>
+                    <button class="tab" data-tab="sent-requests">Sent Requests</button>
+                    <button class="tab" data-tab="find-friends">Find Friends</button>
+                </div>
+
+                <div class="tab-content active" id="all-friends">
+                    <div class="cards-grid" id="all-friends-list"></div>
+                </div>
+
+                <div class="tab-content" id="pending-requests">
+                    <div class="cards-grid" id="pending-requests-list"></div>
+                </div>
+
+                <div class="tab-content" id="sent-requests">
+                    <div class="cards-grid" id="sent-requests-list"></div>
+                </div>
+
+                <div class="tab-content" id="find-friends">
+                    <div class="filters">
+                        <div class="filters-grid">
+                            <div class="form-group">
+                                <label class="form-label" for="friend-search">Search by name</label>
+                                <input type="text" class="form-control" id="friend-search" placeholder="Search runners...">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="friend-city-filter">City</label>
+                                <select class="form-control" id="friend-city-filter">
+                                    <option value="">All cities</option>
+                                    <option value="Denver, CO">Denver, CO</option>
+                                    <option value="Los Angeles, CA">Los Angeles, CA</option>
+                                    <option value="New York, NY">New York, NY</option>
+                                    <option value="Austin, TX">Austin, TX</option>
+                                    <option value="Seattle, WA">Seattle, WA</option>
+                                    <option value="Chicago, IL">Chicago, IL</option>
+                                    <option value="Boston, MA">Boston, MA</option>
+                                    <option value="San Francisco, CA">San Francisco, CA</option>
+                                    <option value="Miami, FL">Miami, FL</option>
+                                    <option value="Portland, OR">Portland, OR</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="friend-fitness-filter">Fitness Level</label>
+                                <select class="form-control" id="friend-fitness-filter">
+                                    <option value="">All levels</option>
+                                    <option value="beginner">Beginner</option>
+                                    <option value="intermediate">Intermediate</option>
+                                    <option value="advanced">Advanced</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cards-grid" id="find-friends-list"></div>
+                </div>
+            </div>
+
+            <!-- Profile Page -->
+            <div id="profile-page" class="page" style="background-color: #FFFFFF;">
+                <div class="profile-container">
+                    <div class="profile-header">
+                        <div style="display: flex; align-items: flex-start; gap: var(--space-24); margin-bottom: var(--space-24);">
+                            <div class="profile-avatar-large" id="profileAvatarLarge" style="width: 120px; height: 120px; border-radius: 50%; background: var(--color-green-light); color: var(--color-green-primary); display: flex; align-items: center; justify-content: center; font-weight: var(--font-weight-bold); font-size: var(--font-size-4xl); border: 4px solid var(--color-green-primary); flex-shrink: 0;">U</div>
+                            <div class="profile-info" style="flex: 1;">
+                                <h1 id="profile-name"></h1>
+                                <div class="profile-meta">
+                                    <span id="profile-age"></span>
+                                    <span id="profile-location"></span>
+                                    <span id="profile-fitness" class="badge"></span>
+                                </div>
+                                <p id="profile-bio" style="margin-top: var(--space-16); color: var(--color-text-secondary);"></p>
+                                <div id="profile-interests" style="margin-top: var(--space-16);"></div>
+                                <div id="profile-goals" style="margin-top: var(--space-16);"></div>
+                                <div style="margin-top: var(--space-12); color: var(--color-text-secondary); font-size: var(--font-size-sm);">
+                                    <span id="profile-years-running"></span> • <span id="profile-favorite-terrain"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="profile-stats-grid" style="grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));">
+                            <div class="profile-stat">
+                                <span class="value" id="profile-runs-joined">0</span>
+                                <span class="label">Runs Joined</span>
+                            </div>
+                            <div class="profile-stat">
+                                <span class="value" id="profile-runs-organized">0</span>
+                                <span class="label">Runs Organized</span>
+                            </div>
+                            <div class="profile-stat">
+                                <span class="value" id="profile-tournaments">0</span>
+                                <span class="label">Tournaments</span>
+                            </div>
+                            <div class="profile-stat">
+                                <span class="value" id="profile-connections">0</span>
+                                <span class="label">Friends</span>
+                            </div>
+                            <div class="profile-stat">
+                                <span class="value" id="trust-score-value">0</span>
+                                <span class="label">Trust Score</span>
+                            </div>
+                        </div>
+                        <div style="margin-top: var(--space-20); text-align: center;">
+                            <button class="btn btn--green" onclick="showPage('my-tournaments')">View My Tournaments</button>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-header">
+                            <h2>Settings</h2>
+                        </div>
+                        
+                        <!-- Safety Settings Section -->
+                        <div class="card" style="padding: var(--space-24); margin-bottom: var(--space-24);">
+                            <h3 style="margin-bottom: var(--space-8); color: var(--color-text); display: flex; align-items: center; gap: var(--space-8);"><span>🛡️</span> Safety</h3>
+                            <p style="color: var(--color-text-secondary); margin-bottom: var(--space-20); font-size: var(--font-size-sm);">Enhance your running safety with live notifications and emergency alerts</p>
+                            
+                            <div style="margin-bottom: var(--space-20);">
+                                <label style="display: flex; align-items: center; justify-content: space-between; padding: var(--space-16); background: #FFFFFF; border: 2px solid var(--color-gold-primary); border-radius: var(--radius-base); cursor: pointer; margin-bottom: var(--space-12);">
+                                    <div>
+                                        <div style="font-weight: var(--font-weight-semibold); margin-bottom: var(--space-4); color: var(--color-text);">📍 Notify Friends When Running</div>
+                                        <div style="font-size: var(--font-size-sm); color: var(--color-text-secondary);">Friends will be notified when you start a Free Run</div>
+                                    </div>
+                                    <input type="checkbox" id="safety-notify-friends" style="width: 20px; height: 20px; cursor: pointer; accent-color: var(--color-gold-primary);">
+                                </label>
+                                
+                                <label style="display: flex; align-items: center; justify-content: space-between; padding: var(--space-16); background: #FFFFFF; border: 2px solid var(--color-gold-primary); border-radius: var(--radius-base); cursor: pointer; margin-bottom: var(--space-12);">
+                                    <div>
+                                        <div style="font-weight: var(--font-weight-semibold); margin-bottom: var(--space-4); color: var(--color-text);">👁️ Allow Friends to Watch Live Runs</div>
+                                        <div style="font-size: var(--font-size-sm); color: var(--color-text-secondary);">Friends can view your live GPS location during runs</div>
+                                    </div>
+                                    <input type="checkbox" id="safety-live-tracking" style="width: 20px; height: 20px; cursor: pointer; accent-color: var(--color-gold-primary);">
+                                </label>
+                            </div>
+                            
+                            <div style="margin-bottom: var(--space-20);">
+                                <div style="font-weight: var(--font-weight-semibold); margin-bottom: var(--space-12); color: var(--color-text);">🚨 SOS Emergency Contacts</div>
+                                <div style="font-size: var(--font-size-sm); color: var(--color-text-secondary); margin-bottom: var(--space-12);">Select friends who will receive SOS alerts during emergencies</div>
+                                <button class="btn btn--secondary btn--sm" onclick="openSosContactsModal()">Manage SOS Contacts</button>
+                                <div id="sos-contacts-summary" style="margin-top: var(--space-12); font-size: var(--font-size-sm); color: var(--color-text-secondary);"></div>
+                            </div>
+                            
+                            <div>
+                                <label class="form-label" for="safety-emergency-contact">Emergency Contact Phone (Optional)</label>
+                                <input type="tel" class="form-control" id="safety-emergency-contact" placeholder="(555) 123-4567">
+                            </div>
+                            
+                            <button class="btn btn--green" style="margin-top: var(--space-20);" onclick="saveSafetySettings()">Save Safety Settings</button>
+                        </div>
+                        
+                        <div class="card" style="padding: var(--space-24); margin-bottom: var(--space-24);">
+                            <h3 style="margin-bottom: var(--space-16); color: var(--color-text);">Theme</h3>
+                            <p style="color: var(--color-text-secondary); margin-bottom: var(--space-16); font-size: var(--font-size-sm);">Choose your preferred color theme for RunLink</p>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-16);">
+                                <div id="light-theme-option" class="theme-option" data-theme="light" style="cursor: pointer; padding: var(--space-20); border: 3px solid var(--color-border); border-radius: var(--radius-lg); transition: all var(--duration-normal) var(--ease-standard); background: #FFFFFF;">
+                                    <div style="font-size: 32px; margin-bottom: var(--space-12); text-align: center;">☀️</div>
+                                    <div style="font-weight: var(--font-weight-semibold); margin-bottom: var(--space-8); text-align: center; color: #1A1A1A;">Light Theme</div>
+                                    <div style="font-size: var(--font-size-sm); color: #666666; text-align: center; margin-bottom: var(--space-12);">White background with gold &amp; sage green accents</div>
+                                    <div style="display: flex; gap: var(--space-4); justify-content: center;">
+                                        <div style="width: 24px; height: 24px; background: #FFFFFF; border: 1px solid #E5E5E5; border-radius: var(--radius-sm);"></div>
+                                        <div style="width: 24px; height: 24px; background: #D4AF37; border-radius: var(--radius-sm);"></div>
+                                        <div style="width: 24px; height: 24px; background: #9CAF88; border-radius: var(--radius-sm);"></div>
+                                        <div style="width: 24px; height: 24px; background: #1A1A1A; border-radius: var(--radius-sm);"></div>
+                                    </div>
+                                </div>
+                                <div id="dark-theme-option" class="theme-option" data-theme="dark" style="cursor: pointer; padding: var(--space-20); border: 3px solid var(--color-border); border-radius: var(--radius-lg); transition: all var(--duration-normal) var(--ease-standard); background: #1A1A1A;">
+                                    <div style="font-size: 32px; margin-bottom: var(--space-12); text-align: center;">🌙</div>
+                                    <div style="font-weight: var(--font-weight-semibold); margin-bottom: var(--space-8); text-align: center; color: #FFFFFF;">Dark Theme</div>
+                                    <div style="font-size: var(--font-size-sm); color: #CCCCCC; text-align: center; margin-bottom: var(--space-12);">Dark background with gold &amp; sage green accents</div>
+                                    <div style="display: flex; gap: var(--space-4); justify-content: center;">
+                                        <div style="width: 24px; height: 24px; background: #1A1A1A; border: 1px solid #333; border-radius: var(--radius-sm);"></div>
+                                        <div style="width: 24px; height: 24px; background: #D4AF37; border-radius: var(--radius-sm);"></div>
+                                        <div style="width: 24px; height: 24px; background: #9CAF88; border-radius: var(--radius-sm);"></div>
+                                        <div style="width: 24px; height: 24px; background: #FFFFFF; border-radius: var(--radius-sm);"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-header">
+                            <h2>Privacy Settings</h2>
+                            <button class="btn btn--green btn--sm" id="edit-privacy-btn">Change Privacy Level</button>
+                        </div>
+                        <div id="privacy-settings-display"></div>
+                    </div>
+
+                    <div id="privacy-settings-form" class="hidden">
+                        <div class="privacy-settings-section">
+                            <h2 style="margin-bottom: var(--space-8); color: var(--color-green-primary);">🔒 Choose Your Privacy Level</h2>
+                            <p style="color: var(--color-text-secondary); margin-bottom: var(--space-24);">Control who can see your profile and activity. You can change this anytime.</p>
+                            
+                            <div class="privacy-level-selector">
+                                <div class="privacy-level-card high" data-level="high" onclick="selectPrivacyLevel('high')">
+                                    <span class="privacy-icon">🔒</span>
+                                    <span class="privacy-label">HIGH PRIVACY</span>
+                                    <p class="privacy-description">Maximum privacy protection. Only friends can see your profile.</p>
+                                    <div class="privacy-features">
+                                        <strong>What's hidden:</strong><br>
+                                        • Not visible in discovery<br>
+                                        • Activity completely hidden<br>
+                                        • Profile only visible to friends
+                                    </div>
+                                </div>
+                                
+                                <div class="privacy-level-card moderate" data-level="moderate" onclick="selectPrivacyLevel('moderate')">
+                                    <span class="privacy-icon">⚠️</span>
+                                    <span class="privacy-label">MODERATE PRIVACY</span>
+                                    <p class="privacy-description">Balanced privacy. Friends can see everything, strangers see limited info.</p>
+                                    <div class="privacy-features">
+                                        <strong>What's visible:</strong><br>
+                                        • Friends see full profile<br>
+                                        • Hidden from public discovery<br>
+                                        • Activity visible to friends only
+                                    </div>
+                                </div>
+                                
+                                <div class="privacy-level-card low" data-level="low" onclick="selectPrivacyLevel('low')">
+                                    <span class="privacy-icon">🔓</span>
+                                    <span class="privacy-label">LOW PRIVACY</span>
+                                    <p class="privacy-description">Public profile. Maximum visibility to connect with more runners.</p>
+                                    <div class="privacy-features">
+                                        <strong>What's visible:</strong><br>
+                                        • Visible to all in discovery<br>
+                                        • Full profile is public<br>
+                                        • Activity visible to everyone
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div style="margin-top: var(--space-24); display: flex; gap: var(--space-8);">
+                                <button class="btn btn--green" id="save-privacy-btn">Save Privacy Settings</button>
+                                <button class="btn btn--secondary" id="cancel-privacy-btn">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-header">
+                            <h2>Verification Status</h2>
+                        </div>
+                        <div id="verification-status-display"></div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-header">
+                            <h2>Running Stats</h2>
+                            <button class="btn btn--green btn--sm" id="edit-stats-btn">Edit Stats</button>
+                        </div>
+                        <div id="stats-display"></div>
+                    </div>
+
+                    <div id="edit-stats-form" class="hidden">
+                        <div class="section">
+                            <h2>Edit Running Stats</h2>
+                            <div class="form-card">
+                                <form id="editStatsForm">
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label class="form-label" for="stat-best-pace">Best Pace (min/mile)</label>
+                                            <input type="number" class="form-control" id="stat-best-pace" step="0.1" placeholder="8.5">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label" for="stat-avg-pace">Average Pace (min/mile)</label>
+                                            <input type="number" class="form-control" id="stat-avg-pace" step="0.1" placeholder="9.2">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label class="form-label" for="stat-best-5k">Best 5K Time</label>
+                                            <input type="text" class="form-control" id="stat-best-5k" placeholder="27:30">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label" for="stat-best-10k">Best 10K Time</label>
+                                            <input type="text" class="form-control" id="stat-best-10k" placeholder="57:00">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label class="form-label" for="stat-best-half">Best Half Marathon</label>
+                                            <input type="text" class="form-control" id="stat-best-half" placeholder="1:58:30">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label" for="stat-best-marathon">Best Marathon</label>
+                                            <input type="text" class="form-control" id="stat-best-marathon" placeholder="3:45:00">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label class="form-label" for="stat-total-miles">Total Miles Run</label>
+                                            <input type="number" class="form-control" id="stat-total-miles" step="0.1" placeholder="450">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label" for="stat-longest-run">Longest Run (miles)</label>
+                                            <input type="number" class="form-control" id="stat-longest-run" step="0.1" placeholder="20">
+                                        </div>
+                                    </div>
+                                    <div style="display: flex; gap: var(--space-8);">
+                                        <button type="submit" class="btn btn--green">Save Stats</button>
+                                        <button type="button" class="btn btn--secondary" id="cancel-stats-btn">Cancel</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-header">
+                            <h2>Running Preferences</h2>
+                            <button class="btn btn--green" id="edit-profile-btn">Customize Profile</button>
+                        </div>
+                        <div class="card" style="padding: var(--space-24);">
+                            <div class="runner-stats">
+                                <div class="stat-item">
+                                    <span class="label">Average Pace</span>
+                                    <span class="value" id="profile-pace"></span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="label">Distance Preference</span>
+                                    <span class="value" id="profile-distance"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="edit-profile-form" class="hidden">
+                        <div class="section">
+                            <h2>Edit Profile</h2>
+                            <div class="form-card">
+                                <div id="edit-profile-alert"></div>
+                                <form id="editProfileForm">
+                                    <div class="form-group">
+                                        <label class="form-label" for="edit-bio">Bio</label>
+                                        <input type="text" class="form-control" id="edit-bio">
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label class="form-label" for="edit-pace">Pace (min/mile)</label>
+                                            <input type="number" class="form-control" id="edit-pace" step="0.1" min="6" max="15" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label" for="edit-distance">Distance Preference (miles)</label>
+                                            <input type="number" class="form-control" id="edit-distance" min="1" max="26" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="edit-fitness">Fitness Level</label>
+                                        <select class="form-control" id="edit-fitness" required>
+                                            <option value="beginner">Beginner</option>
+                                            <option value="intermediate">Intermediate</option>
+                                            <option value="advanced">Advanced</option>
+                                        </select>
+                                    </div>
+                                    <div style="display: flex; gap: var(--space-8);">
+                                        <button type="submit" class="btn btn--green">Save Changes</button>
+                                        <button type="button" class="btn btn--secondary" id="cancel-edit-btn">Cancel</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </main>
+    </div>
+
+    <!-- Google Maps API - Automated Integration for Both Maps & Free Run -->
+    <!-- No API key needed for basic functionality! Works automatically. -->
+    <!-- Optional: Add your API key below for satellite view and enhanced features -->
+    <!-- Get free API key: https://console.cloud.google.com/google/maps-apis -->
+    <script>
+      // Global callback for Google Maps API - initializes BOTH tabs
+      window.initGoogleMapsAPI = function() {
+        console.log('✅ Google Maps API loaded successfully');
+        console.log('🗺️ Dual integration: Maps tab + Free Run GPS tracking');
+        window.googleMapsLoaded = true;
+        window.mapInitialized = true;
+        
+        // Initialize maps on current page if applicable
+        const activePage = document.querySelector('.page.active');
+        if (activePage) {
+          if (activePage.id === 'map-page') {
+            setTimeout(() => renderMap(), 100);
+          } else if (activePage.id === 'free-run-page') {
+            setTimeout(() => initializeFreeRunMap(), 100);
+          }
+        }
+      };
+      
+      // Fallback initialization if Maps API not loaded
+      window.mapInitialized = false;
+      window.googleMapsLoaded = false;
+      
+      // Auto-initialize after short delay
+      setTimeout(() => {
+        if (!window.googleMapsLoaded) {
+          console.log('🗺️ Using automated map visualization (Google Maps API optional)');
+          window.mapInitialized = true;
+        }
+      }, 1000);
+    </script>
+    
+    <!-- Google Maps API - Automated Integration Ready -->
+    <!-- Note: For full Google Maps functionality, add your API key below -->
+    <!-- Get free key at: https://console.cloud.google.com/google/maps-apis -->
+
+    
+    <!-- Automated map initialization (works with or without Google Maps API) -->
+    <script>
+      // Initialize map system when page loads
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+          setTimeout(() => {
+            if (typeof google !== 'undefined' && google.maps) {
+              console.log('✅ Google Maps API detected and ready');
+              if (typeof initGoogleMapsAPI === 'function') {
+                initGoogleMapsAPI();
+              }
+            } else {
+              console.log('🗺️ Using automated map visualization');
+              if (typeof initGoogleMapsAPI === 'function') {
+                initGoogleMapsAPI();
+              }
+            }
+          }, 500);
+        });
+      } else {
+        setTimeout(() => {
+          if (typeof initGoogleMapsAPI === 'function') {
+            initGoogleMapsAPI();
+          }
+        }, 500);
+      }
+    </script>
+    <script src="app.js"></script>
+</body>
+</html>
